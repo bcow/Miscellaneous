@@ -1,0 +1,128 @@
+---
+title: "Assignment 2"
+author: "Betsy Cowdery"
+date: "2/23/2015"
+output: html_document
+---
+
+
+GE516 Assignment # 2
+Basic Linear Regression
+Due: Feb 26
+The goal of this assignment is to illustrate the basic concepts of linear regression models,
+and to estimate some linear models in R. To this end, perform the following tasks and
+answer the associated questions.
+Specifically, you will estimate univariate regression models to predict ozone as a function of radiation, temperature and wind (i.e., three models). To do this, use the data provided in the built - in dataframe
+called “airquality.”
+
+
+A.
+Produce scatter plots showing the relationship
+between ozone and each of the other
+variables in the dataframe
+.
+
+```{r,echo=FALSE}
+
+air <- airquality
+
+par(mfrow = c(2,2))
+plot(air$Solar.R,air$Ozone)
+plot(air$Temp,air$Ozone)
+plot(air$Wind,air$Ozone)
+```
+
+Use the plotting options to correctly label your axes and
+make your plots
+clear and
+easy to understand.
+
+B.
+Use “lm” to estimate three regression models where ozone as the response variable
+and radiation, temperature and wind are the predictors.
+
+C.
+Explain how to interpret the R2, F and p-values provided by R. What do these
+statistics tell you about each of the models that you have estimated?
+
+```{r, echo=FALSE}
+
+fit_solr <- lm(air$Ozone~air$Solar.R)
+summary(fit_solr)
+fit_temp <- lm(air$Ozone~air$Temp)
+summary(fit_temp)
+fit_wind <- lm(air$Ozone~air$Wind)
+summary(fit_wind)        
+        
+```
+
+
+D.
+Use R to manually (i.e., based on the equations given in class) compute the values for
+the F-statistic, β0, and β1 for your regression model predicting ozone as a function of
+temperature.
+
+You may use lm to verify your results, but the objective is to compute
+these statistics from the data themselves.
+
+
+E. For each model, manually perform the diagnostic regression assessments that we
+talked about in class (i.e., examine the residuals). To do this, you may use the 
+built-in functionality of R to check your results, but you must also do this 
+yourself by generating diagnostic plots of the residuals from the model. 
+Specifically, use the “plot” command and the “qqnorm” command to plot fitted versus
+values versus residuals and to generate a qqnorm plot of the residuals. 
+Comment on what you find.
+
+Specifically,
+
+1.Does the model appear to meet the required assumptions? If so, why? If not, why not?
+
+2. Are any of the data points candidate outliers? Delete one or two extreme 
+points and assess the sensitivity of the model to these points. Explain what
+you find.
+
+#Model 1
+
+```{r,echo=FALSE}
+par(mfrow = c(2,2))
+
+plot(air$Solar.R,air$Ozone, main="Solar Radion vs Ozone Levels", xlab="Solar Radiation", ylab="Ozone Level" )
+abline(fit_solr, lty=2, col="red", lwd=2)
+hist(resid(fit_solr), main="Hisotgram of Residuals", xlab="Residuals", prob=TRUE)
+lines(density(resid(fit_solr)), lty=2, col="red", lwd=2)
+plot(fitted(fit_solr),resid(fit_solr), main="Residuals vs Fitted", xlab="Fitted Values", ylab="Residuals")
+abline(h= 0, lty=2, col="red", lwd=2)
+qqnorm(resid(fit_solr)) 	
+qqline(resid(fit_solr), lty=2, col="red", lwd=2)
+```
+
+#Model 2
+```{r,echo=FALSE}
+par(mfrow = c(2,2))
+
+plot(air$Temp,air$Ozone, main="Air Temperature vs Ozone Levels", xlab="Temperature, °F", ylab="Ozone Level")
+abline(fit_temp, lty=2, col="red", lwd=2)
+hist(resid(fit_temp), main="Hisotgram of Residuals", xlab="Residuals", prob=TRUE)
+lines(density(resid(fit_temp)), lty=2, col="red", lwd=2)
+plot(fitted(fit_temp),resid(fit_temp), main="Residuals vs Fitted", xlab="Fitted Values", ylab="Residuals") 
+abline(h= 0, lty=2, col="red", lwd=2)
+qqnorm(resid(fit_temp)) 
+qqline(resid(fit_temp), lty=2, col="red", lwd=2)
+```
+
+#Model 3
+
+```{r,echo=FALSE}
+par(mfrow = c(2,2))
+
+plot(air$Wind,air$Ozone, main="Wind vs Ozone Levels", xlab="Wind, °F", ylab="Ozone Level")
+abline(fit_wind, lty=2, col="red", lwd=2)
+hist(resid(fit_wind), main="Hisotgram of Residuals", xlab="Residuals", prob=TRUE)
+lines(density(resid(fit_wind)), lty=2, col="red", lwd=2)
+plot(fitted(fit_wind),resid(fit_wind), main="Residuals vs Fitted", xlab="Fitted Values", ylab="Residuals") 
+abline(h= 0, lty=2, col="red", lwd=2)
+qqnorm(resid(fit_wind)) 
+qqline(resid(fit_wind), lty=2, col="red", lwd=2)
+```
+
