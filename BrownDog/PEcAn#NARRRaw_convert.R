@@ -53,7 +53,7 @@ overwrite <- TRUE
 verbose <- TRUE
 
 # 0 create folders
-rawfolder <- file.path(tempDir,input$type,input$site, "raw")
+rawfolder <- file.path(tempDir,input$type, "raw")
 dir.create(rawfolder, showWarnings=FALSE, recursive=TRUE)
 
 # 1 download data
