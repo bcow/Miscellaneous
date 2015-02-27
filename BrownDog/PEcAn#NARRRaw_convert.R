@@ -4,7 +4,7 @@
 #xml
 #NARR.nc, NARR.zip 
 
-# input filesis a xml file specifying what to get
+# input files is a xml file specifying what to get
 #<input>
 #  <type>NARR</type>
 #  <start_date>1979-01-01 00:00:00</start_date>
@@ -14,7 +14,13 @@
 .libPaths("/home/polyglot/R/library")
 sink(stdout(),type="message")
 
-# get command line arguments
+# Get command line arguments
+#
+# The command line arguments should be
+# 1. The file name, containing an absolute path, to the input file
+# 2. The file name, containing an absolute path, to the output file that will be generated
+# 3. The absolute path to a temporary scratch directory that can be used by the script
+
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 2) {
   myCommand <- substr(commandArgs()[4],10,1000000L)
