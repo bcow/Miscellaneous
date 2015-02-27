@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<pecan>
+ <outdir>/home/ecowdery/met_process_tests/</outdir>
+ <database>
+  <bety>
+   <user>bety</user>
+   <password>bety</password>
+   <host>128.197.230.32</host>
+   <dbname>bety</dbname>
+   <write>TRUE</write>
+   <driver>PostgreSQL</driver>
+  </bety>
+ </database>
+ <pfts>
+  <pft>
+   <name>evergreen</name>
+   <outdir>/home/dietze/test/dalec//pft/evergreen</outdir>
+  </pft>
+ </pfts>
+ <ensemble>
+  <variable>NPP</variable>
+  <size>1</size>
+  <start.year>1979</start.year>
+  <end.year>2014</end.year>
+ </ensemble>
+ <model>
+  <id>1000000002</id>
+  <binary>/home/dietze/dalec_EnKF_pub//dalec_seqMH</binary>
+  <type>DALEC</type>
+  <revision>Quaife Evergreen RSE08</revision>
+ </model>
+ <run>
+  <site>
+   <id>758</id>
+   <name>Harvard Forest EMS Tower/HFR1 (US-Ha1)</name>
+   <lat>42.5378</lat>
+   <lon>-72.1715</lon>
+  </site>
+  <start.date>1979-01-01 00:00:00</start.date>
+  <end.date>2014-12-31 00:00:00</end.date>
+  <host>
+   <name>localhost</name>
+   <rundir>/home/ecowdery/met_process_tests/dalec//run</rundir>
+   <outdir>/home/ecowdery/met_process_tests/dalec//out</outdir>
+  </host>
+  <dbfiles>/fs/data1/pecan.data/input</dbfiles>
+  <inputs>
+   <met>/fs/</met>
+   <comment></comment>
+  </inputs>
+ </run>
+ <meta.analysis>
+  <iter>3000</iter>
+  <random.effects>FALSE</random.effects>
+  <update>AUTO</update>
+  <threshold>1.2</threshold>
+ </meta.analysis>
+ <workflow>
+  <id>1000000064</id>
+ </workflow>
+ <rundir>/home/ecowdery/met_process_tests/dalec//run</rundir>
+ <modeloutdir>/home/ecowdery/met_process_tests/dalec//out</modeloutdir>
+</pecan>
