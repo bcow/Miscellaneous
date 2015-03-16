@@ -2,35 +2,57 @@ rm(list = setdiff(ls(), lsf.str()))  # clear variables but not sourced functions
 for (i in dbListConnections(PostgreSQL())) db.close(i) #close any stray database connections
 
 require(PEcAn.all)
-settings <- read.settings("/home/ecowdery/met_process_tests/pecan.xml")
+xml_file <- "/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_geo.xml"
+settings <- read.settings(xml_file)
+settings <- xmlToList(xmlParse(xml_file))
 
-site       = list(id=758, name="Harvard Forest EMS Tower/HFR1 (US-Ha1)")
+library(XML)
+library(lubridate)
+library(PEcAn.DB)
+library(PEcAn.utils)
+
+site       = settings$run$site 
 start_date = settings$run$start.date 
 end_date   = settings$run$end.date
-model      = "SIPNET"
+model      = settings$model$type
 host       = settings$run$host
 bety       = settings$database$bety 
 dir        = settings$run$dbfiles
-input      = list(met = list(id = "", path = "", source = "NARR"))
+input_met  = settings$run$inputs$met
 
-final_folder <- met.process(site, input, start_date, end_date, model, host, bety, dir)
+final_folder <- met.process(site, input_met, start_date, end_date, model, host, bety, dir)
+
+
+
+refresh.pecan()
+PEcAn.LINKAGES::met2model.LINKAGES
+
+
+xml <- xmlToList(xmlParse("/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_geo.xml"))
+
 
 site.id=site$id
 hostname=host$name
 write=TRUE
 l <- list(lst=lst)
+l <- list()
+l <- list(slat=new.lat,slon=new.lon,newsite=new.site)
 
-detach("package:PEcAn.all", unload=TRUE)
-detach("package:PEcAn.uncertainty", unload=TRUE)
-detach("package:PEcAn.settings", unload=TRUE)
-detach("package:PEcAn.MA", unload=TRUE)
-detach("package:PEcAn.data.land", unload=TRUE)
-detach("package:PEcAn.data.remote", unload=TRUE)
-detach("package:PEcAn.data.atmosphere", unload=TRUE)
-detach("package:PEcAn.assim.batch", unload=TRUE)
-detach("package:PEcAn.DB", unload=TRUE)
-detach("package:PEcAn.priors", unload=TRUE)
-detach("package:PEcAn.utils", unload=TRUE)
+
+(cmdFcn,hostname,verbose=TRUE)
+
+
+script <- cmdFcn
+host="localhost"
+user=NA
+verbose=FALSE
+R="R"
+
+source('~/GitHub_Miscellaneous/PEcAn/refresh.pecan.R')
+
+head(PEcAn.data.atmosphere::metgapfill,20)
+
+library(PEcAn.all)
 
 
 
@@ -140,6 +162,7 @@ verbose=TRUE
 
 "PEcAn.ED2::met2model.ED2('/fs/data4/NARR_CF_site_0-772/','NARR','/fs/data4/NARR_ED2_site_0-772/','1979-01-01 00:00:00','2013-12-31 00:00:00','lst = -7','overwrite = ')"
 
+
 in.path <- "/fs/data4/NARR_CF_site_0-772/"
 in.prefix <- "NARR"
 outfolder <- "/fs/data4/NARR_ED2_site_0-772/"
@@ -149,6 +172,35 @@ lst <- lst
 overwrite=FALSE
 verbose=TRUE
 
+
+
+
+
+"PEcAn.LINKAGES::met2model.LINKAGES('/fs/data1/pecan.data/input/Ameriflux_CF_gapfill_site_0-755','US-Dk2','/fs/data1/pecan.data/input/Ameriflux_LINKAGES_site_0-755/','2006-01-01 00:00:00','2007-12-31 00:00:00',lst = -5)"
+
+
+in.path <- '/fs/data1/pecan.data/input/Ameriflux_CF_gapfill_site_0-755'
+in.prefix <- 'US-Dk2'
+outfolder <- '/fs/data1/pecan.data/input/Ameriflux_LINKAGES_site_0-755/'
+start_date <- "2006-01-01 00:00:00"
+end_date <- "2007-12-31 00:00:00"
+lst <- lst
+overwrite=FALSE
+verbose=TRUE
+
+#########################################
+
+
+in.path=dirname(result$file[1])
+in.prefix=in.prefix
+siteid = siteid
+startdate = paste(input$start_date)
+enddate = paste(input$end_date)
+mimetype
+formatname
+parentid = input$id
+con = con
+hostname = machine$hostname
 
 
 
