@@ -1,3 +1,4 @@
+
 require(RCurl)
 require(XML)
 require(ncdf4)
@@ -64,7 +65,6 @@ for(i in 1:length(fpath)){
   nc_name <- basename(fpath[i])
   assign(nc_name, nc_open(fpath[i]))
 }
-
 
 
 
