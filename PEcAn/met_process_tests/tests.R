@@ -2,7 +2,7 @@ rm(list = setdiff(ls(), lsf.str()))  # clear variables but not sourced functions
 for (i in dbListConnections(PostgreSQL())) db.close(i) #close any stray database connections
 
 require(PEcAn.all)
-xml_file <- "/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_geo.xml"
+xml_file <- "/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_pecan2.xml"
 settings <- read.settings(xml_file)
 settings <- xmlToList(xmlParse(xml_file))
 
@@ -19,6 +19,8 @@ host       = settings$run$host
 bety       = settings$database$bety 
 dir        = settings$run$dbfiles
 input_met  = settings$run$inputs$met
+
+browndog = list(host="http://dap.ncsa.illinois.edu:8184/convert/")
 
 final_folder <- met.process(site, input_met, start_date, end_date, model, host, bety, dir)
 
