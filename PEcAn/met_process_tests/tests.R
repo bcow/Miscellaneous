@@ -2,14 +2,12 @@ rm(list = setdiff(ls(), lsf.str()))  # clear variables but not sourced functions
 for (i in dbListConnections(PostgreSQL())) db.close(i) #close any stray database connections
 
 require(PEcAn.all)
+# PEcAn.data.atmosphere::
+
 xml_file <- "/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_pecan2.xml"
-settings <- read.settings(xml_file)
+#settings <- read.settings(xml_file)
 settings <- xmlToList(xmlParse(xml_file))
 
-library(XML)
-library(lubridate)
-library(PEcAn.DB)
-library(PEcAn.utils)
 
 site       = settings$run$site 
 start_date = settings$run$start.date 
@@ -19,15 +17,49 @@ host       = settings$run$host
 bety       = settings$database$bety 
 dir        = settings$run$dbfiles
 input_met  = settings$run$inputs$met
+browndog   = settings$browndog
 
-browndog = list(host="http://dap.ncsa.illinois.edu:8184/convert/")
+settings$browndog <- NULL
 
-final_folder <- met.process(site, input_met, start_date, end_date, model, host, bety, dir)
+final_folder <- PEcAn.data.atmosphere::met.process(
+  site       = settings$run$site, 
+  input_met  = settings$run$inputs$met,
+  start_date = settings$run$start.date,
+  end_date   = settings$run$end.date,
+  model      = settings$model$type,
+  host       = settings$run$host,
+  bety       = settings$database$bety, 
+  dir        = settings$run$dbfiles,
+  browndog   = settings$browndog)
 
+final_folder <- met.process(
+  site       = settings$run$site, 
+  input_met  = settings$run$inputs$met,
+  start_date = settings$run$start.date,
+  end_date   = settings$run$end.date,
+  model      = settings$model$type,
+  host       = settings$run$host,
+  bety       = settings$database$bety, 
+  dir        = settings$run$dbfiles,
+  browndog   = settings$browndog)
 
-
+source('~/GitHub_Miscellaneous/PEcAn/refresh.pecan.R')
 refresh.pecan()
-PEcAn.LINKAGES::met2model.LINKAGES
+
+
+library(XML)
+library(lubridate)
+library(PEcAn.DB)
+library(PEcAn.utils)
+
+
+xmldata2 <- paste0("<input>",
+                  "<type>",tolower(met), "</type>",
+                  "<site>", site.dl, "</site>",
+                  "<start_date>", start_date, "</start_date>",
+                  "<end_date>", end_date, "</end_date>",
+                  "</input>")
+
 
 
 xml <- xmlToList(xmlParse("/home/ecowdery/GitHub_Miscellaneous/PEcAn/met_process_tests/pecan_geo.xml"))
@@ -51,6 +83,7 @@ verbose=FALSE
 R="R"
 
 source('~/GitHub_Miscellaneous/PEcAn/refresh.pecan.R')
+refresh.pecan()
 
 head(PEcAn.data.atmosphere::metgapfill,20)
 
@@ -205,10 +238,14 @@ con = con
 hostname = machine$hostname
 
 
+##################################################################################
 
 
-
-
+site = 'US-Dk2'
+outfolder = '/fs/data1/pecan.data/input/Ameriflux_site_0-755'
+start_date = '2006-01-01 00:00:00'
+end_date = '2007-12-31 00:00:00'
+bd.host = 'http://dap.ncsa.illinois.edu:8184/convert/'
 
 
 
