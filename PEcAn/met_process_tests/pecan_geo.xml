@@ -20,8 +20,8 @@
  <ensemble>
   <variable>NPP</variable>
   <size>1</size>
-  <start.year>2006</start.year>
-  <end.year>2007</end.year>
+  <start.year>2000</start.year>
+  <end.year>2014</end.year>
  </ensemble>
  <model>
   <id>10</id>
@@ -31,13 +31,13 @@
  </model>
  <run>
   <site>
-   <id>755</id>
-   <name>Duke Forest-hardwoods (US-Dk2)</name>
-   <lat>35.9736</lat>
-   <lon>-79.1004</lon>
+   <id>1000000653</id>
+   <name>MANDIFORE-Prototype-3</name>
+   <lat>29.7474383568</lat>
+   <lon>-82.2264505076</lon>
   </site>
-  <start.date>2006-01-01 00:00:00</start.date>
-  <end.date>2007-12-31 00:00:00</end.date>
+  <start.date>2000-01-01 00:00:00</start.date>
+  <end.date>2014-12-31 00:00:00</end.date>
   <host>
    <name>geo.bu.edu</name>
    <rundir>/usr2/collab/ecowdery/test/dalec//run</rundir>
@@ -46,7 +46,7 @@
   <dbfiles>/projectnb/dietzelab/pecan.data/input/</dbfiles>
    <inputs>
     <met>
-      <source>Ameriflux</source>
+      <source>NARR</source>
     </met>
   </inputs>
  </run>
