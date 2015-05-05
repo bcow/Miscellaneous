@@ -4,21 +4,21 @@ for (i in dbListConnections(PostgreSQL())) db.close(i) #close any stray database
 require(PEcAn.all)
 # PEcAn.data.atmosphere::
 
-xml_file <- "tests/pecan2.tests.xml"
-#settings <- read.settings(xml_file)
-settings <- xmlToList(xmlParse(xml_file))
+xml_file <- "tests/online.pecan.test.xml"
+settings <- read.settings(xml_file)
 
-# read.settings("pecan.xml")
+# settings <- xmlToList(xmlParse(xml_file))
+
 
 
 site       = settings$run$site 
+input_met  = settings$run$inputs$met
 start_date = settings$run$start.date 
 end_date   = settings$run$end.date
 model      = settings$model$type
 host       = settings$run$host
 dbparms    = settings$database$bety 
 dir        = settings$run$dbfiles
-input_met  = settings$run$inputs$met
 browndog   = settings$browndog
 
 final_folder <- met.process(site, input_met, start_date, end_date, model, host, dbparms, dir, browndog)
