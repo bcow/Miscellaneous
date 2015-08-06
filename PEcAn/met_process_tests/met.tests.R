@@ -5,11 +5,11 @@ require(PEcAn.all)
 # PEcAn.data.atmosphere::
 
 xml_file <- "tests/online.pecan.test.xml"
+xml_file <- "tests/pecan.LINKAGES.xml"
+xml_file <- "tests/pecan2.tests.xml"
 settings <- read.settings(xml_file)
 
 # settings <- xmlToList(xmlParse(xml_file))
-
-
 
 site       = settings$run$site 
 input_met  = settings$run$inputs$met
@@ -30,7 +30,7 @@ hostname=host$name
 write=TRUE
 l <- list()
 l <- list(lst=lst)
-l <- list(slat=new.lat,slon=new.lon,newsite=new.site)
+l <- list(lst=lst,lat=new.site$lat,lon=new.site$lon)
 
 
 

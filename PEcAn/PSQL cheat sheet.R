@@ -51,3 +51,14 @@ recent_input <- db.query(paste("SELECT * FROM inputs ORDER BY created_at DESC LI
 recent_dbfile <- db.query(paste("SELECT * FROM dbfiles ORDER BY created_at DESC LIMIT 400"),con)
 
 recent_dbfile <- db.query(paste0("SELECT * FROM dbfiles WHERE created_at LIKE '","2014-06-02%","'"),con)
+
+
+start_date = db.query(paste("SELECT start_date from inputs where id =",1000000481),con)
+end_date = db.query(paste("SELECT end_date from inputs where id =",1000000481),con)
+
+db.query(paste("UPDATE inputs SET start_date = '0850-01-01 00:00:00' where id =",1000000481),con)
+db.query(paste("UPDATE inputs SET start_date = '2010-12-31 23:59:00' where id =",1000000481),con)
+
+
+db.query(paste("UPDATE inputs SET name = 'PalEON_LINKAGES_site_1-650' where id =",1000000481),con)
+

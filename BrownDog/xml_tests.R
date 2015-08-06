@@ -3,8 +3,8 @@ for (i in dbListConnections(PostgreSQL())) db.close(i) #close any stray database
 
 require(PEcAn.all)
 
-old_xml <- "/fs/data2/output/PEcAn_1000000332/pecan.xml"
-new_xml <- "tests/online.pecan.test.xml"
+old_xml <- "/fs/data2/output/PEcAn_1000000376/pecan.xml"
+new_xml <- "pecan.xml"
 
 file.remove(new_xml)
 clean.settings(old_xml,new_xml)
@@ -14,7 +14,10 @@ file.edit(new_xml)
 
 require(PEcAn.all)
 
+file.edit("tests/online.pecan.test.xml")
 new_xml <- "tests/online.pecan.test.xml"
+
+new_xml <- "pecan.xml"
 settings <- read.settings(new_xml)
 
 site       = settings$run$site 
