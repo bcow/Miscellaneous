@@ -3,7 +3,6 @@
 #' find the time overlaps, consolidate them and re-enter them 
 
 require(RPostgreSQL)
-require(lubridate)
 require(PEcAn.DB)
 
 dbparms <- list(user="bety", password="bety",host="psql-pecan.bu.edu",dbname="bety",driver="PostgreSQL", write="TRUE")
@@ -55,6 +54,8 @@ print(ints)
 
 ################################################################################
 # Haven't figured out a good way to do it with time class variables
+
+require(lubridate)
 
 intervals <- list()
 for(i in 1:dim(check)[1]){
