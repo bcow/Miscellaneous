@@ -6,6 +6,7 @@ library(RPostgreSQL)
 dbparms <- list(driver="PostgreSQL" , user = "bety", dbname = "bety", password = "bety", host = "psql-pecan.bu.edu")
 con     <- db.open(dbparms)
 
+
 input.id  <- 288
 outfolder_test <- "/projectnb/cheas/pecan.data/input/NARR_CF_test/"
 outfolder      <- "/projectnb/cheas/pecan.data/input/NARR_CF/"
@@ -61,4 +62,29 @@ db.query(paste("UPDATE inputs SET start_date = '2010-12-31 23:59:00' where id ="
 
 
 db.query(paste("UPDATE inputs SET name = 'PalEON_LINKAGES_site_1-650' where id =",1000000481),con)
+
+
+
+site.id <- 777
+site <- db.query(paste("SELECT id, ST_X(ST_CENTROID(geometry)) AS lon, ST_Y(ST_CENTROID(geometry)) AS lat FROM sites WHERE id =",site.id),con)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
