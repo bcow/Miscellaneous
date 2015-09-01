@@ -8,19 +8,30 @@
 ##' 
 ##' @author Betsy Cowdery 
 
-calc.benchmark <- function(settings){
+calc.benchmark <- function(settings.bm){ #settings file is output from start.benchmark.runs
+  
+  # Get all the database stuff setup
+  
+  # Read the settings file
+  
+  bm.id <- settings.bm$run$id #maybe?
+  
+  benchmark <- db.query(paste("SELECT * benchmarks WHERE id = ", bm.id), con)
+  
+  # will this give you 
 
-	# Read model output
 
-	# Query benchmarks
+  
+	# Query benchmarks - don't know how to do yet
+  model.out <- read.output(runid, outdir, start.year=NA,end.year=NA, variables = "GPP") 
 
 	# For each benchmark run
 		# Load model outputs (vector)
-
-		
-
-
-		# Load observations (vector)
+    # Load observations (vector)
+  
+  load.data()
+  
+  
 		# Query metrics
 			# For each metric
 				# calc
