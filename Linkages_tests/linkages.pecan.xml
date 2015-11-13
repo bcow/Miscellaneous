@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<pecan>
+ <outdir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output/</outdir>
+ <database>
+  <bety>
+   <user>bety</user>
+   <password>bety</password>
+   <host>psql-pecan.bu.edu</host>
+   <dbname>bety</dbname>
+   <driver>PostgreSQL</driver>
+   <write>TRUE</write>
+  </bety>
+ </database>
+ <pfts>
+  <pft>
+   <name>Tsuga canadensis</name>
+   <constants>
+    <num>1</num>
+   </constants>
+  <outdir>/home/ecowdery/GitHub_Miscellaneous//Linkages_tests//output//pft//Tsuga canadensis</outdir>
+  </pft>
+ </pfts>
+ <meta.analysis>
+  <iter>3000</iter>
+  <random.effects>FALSE</random.effects>
+  <threshold>1.2</threshold>
+  <update>AUTO</update>
+ </meta.analysis>
+ <ensemble>
+  <size>1</size>
+  <notes></notes>
+  <variable>NPP</variable>
+  <start.year>850</start.year>
+  <end.year>2009</end.year>
+ </ensemble>
+ <model>
+  <id>1000000005</id>
+  <type>LINKAGES</type>
+  <revision>Revision 1.0 Ann&apos;s hack</revision>
+  <binary>/home/ecowdery/Linkages/linkages</binary>
+ </model>
+ <run>
+  <site>
+   <id>1000000650</id>
+   <met.start>0850-01-01 00:00:00</met.start>
+   <met.end>2010-12-31 23:59:00</met.end>
+   <name>Harvard Forest - Lyford Plots (PalEON PHA)</name>
+   <lat>42.53</lat>
+   <lon>-72.18</lon>
+  </site>
+  <inputs>
+   <met>
+    <id>1000000481</id>
+    <path>/fs/data1/pecan.data/input/PalEON_LINKAGES_site_1-650/climate.txt</path>
+   </met>
+  </inputs>
+  <start.date>0850/01/01</start.date>
+  <end.date>2009/12/31</end.date>
+  <dbfiles>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/dbfiles</dbfiles>
+  <host>
+   <name>localhost</name>
+   <rundir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output/run</rundir>
+   <outdir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output/out</outdir>
+  </host>
+ </run>
+</pecan>
