@@ -137,7 +137,7 @@ if(length(acheck)>0 & length(echeck)>0){
   cf.id.e <- list(input.id=echeck$container_id, dbfile.id=echeck$id)
 }else{
   
-  in.path <- raw.path
+  in.path <- db.query(paste("SELECT file_path from dbfiles where container_id =", raw.id[1] ),con)[[1]][[1]]
   in.prefix <- "FACE"
   outfolder <- outfolder
   
@@ -180,11 +180,15 @@ cf.id.e$input.id <- cf.id.e$input.id[1]
 #--------------------------------------------------------------------------------------------------#
 # Prepare for Model
 
-  # Determine output format name and mimetype   
-  model_info <- db.query(paste0("SELECT f.name, f.id, f.mime_type from modeltypes as m join modeltypes_formats as mf on m.id
-                                = mf.modeltype_id join formats as f on mf.format_id = f.id where m.name = '",model,"' AND mf.tag='met'"),con)
-  formatname <- model_info[1]
-  mimetype   <- model_info[3]   
+
+# Determine output format name and mimetype
+model_info <- db.query(paste0("SELECT f.name, f.id, mt.type_string from modeltypes as m",
+                              " join modeltypes_formats as mf on m.id = mf.modeltype_id",
+                              " join formats as f on mf.format_id = f.id",
+                              " join mimetypes as mt on f.mimetype_id = mt.id",
+                              " where m.name = '", model, "' AND mf.tag='met'"),con)
+formatname <- model_info[1]
+mimetype   <- model_info[3]
 
 ########################################################
 # ambient model data 

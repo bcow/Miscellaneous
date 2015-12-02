@@ -24,38 +24,37 @@
   </bety>
  </database>
  
- <model>
-  <id>10</id>
-  <binary>/home/dietze/sipnet_unk/sipnet</binary>
-  <type>SIPNET</type>
-  <revision>unk</revision>
+  <model>
+  <id>5</id>
+  <type>ED2</type>
+  <revision>80</revision>
  </model>
  
-  <pfts>
+ <pfts>
   <pft>
-   <name>temperate.coniferous</name>
+   <name>temperate.Early_Hardwood</name>
    <constants>
     <num>1</num>
    </constants>
-   <outdir>/fs/data2/output//PEcAn_1000000305/pft/temperate.coniferous</outdir>
-   <posteriorid>1000000416</posteriorid>
+   <outdir>/fs/data2/output//PEcAn_1000000306/pft/temperate.Early_Hardwood</outdir>
+   <posteriorid>1000000417</posteriorid>
   </pft>
  </pfts>
  
  <run>
 
   <site>
-   <id>1000000008</id>
-   <name>Rhinelander Aspen FACE Experiment (FACE-RHIN)</name>
-   <lat>45.6</lat>
-   <lon>-89.5</lon>
+   <id>666</id>
+   <name>Oak Ridge National Laboratory (FACE-ORNL)</name>
+   <lat>35.93</lat>
+   <lon>-84.31</lon>
   </site>
   
-  <start.date>1998-01-01 00:00:00</start.date>
-  <end.date>2008-12-31 00:00:00</end.date>
+  <start.date>1996-01-01 00:00:00</start.date>
+  <end.date>2007-12-31 00:00:00</end.date>
   
   <host>
-   <name>localhost</name>
+   <name>test-pecan.bu.edu</name>
   </host>
   
   <dbfiles>/fs/data1/pecan.data/input</dbfiles>
