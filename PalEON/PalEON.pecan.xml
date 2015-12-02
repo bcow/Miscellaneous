@@ -34,16 +34,18 @@
  </model>
  <run>
   <site>
-   <id>759</id>
+   <id>1000000673</id>
    <met.start>0850-01-01 00:00:00</met.start>
    <met.end>2010-12-31 23:59:00</met.end>
-   <name>Howland Forest- main tower (US-Ho1) (PalEON PHO)</name>
-   <lat>45.2041</lat>
-   <lon>-68.7403</lon>
+   <name>Deming Lake (PalEON PDL)</name>
+   <lat>47.17</lat>
+   <lon>-95.17</lon>
   </site>
   <inputs>
    <met>
     <source>PalEON</source>
+    <path>/fs/data1/pecan.data/input//PalEON_site_1-673</path>
+    <id>1000000533</id>
    </met>
   </inputs>
   <start.date>0850/01/01</start.date>
@@ -59,6 +61,50 @@
 
 
 <!--
+
+  <site>
+   <id>1000000675</id>
+   <met.start>0850-01-01 00:00:00</met.start>
+   <met.end>2010-12-31 23:59:00</met.end>
+   <name>University of Notre Dame Environmental Research Center (PalEON UNDERC)</name>
+   <lat>46.22</lat>
+   <lon>-89.53</lon>
+  </site>
+  
+  <site>
+   <id>1000000674</id>
+   <met.start>0850-01-01 00:00:00</met.start>
+   <met.end>2010-12-31 23:59:00</met.end>
+   <name>Minden Bog (PalEON PMB)</name>
+   <lat>43.61</lat>
+   <lon>-82.83</lon>
+  </site>
+
+  <site>
+   <id>1000000673</id>
+   <met.start>0850-01-01 00:00:00</met.start>
+   <met.end>2010-12-31 23:59:00</met.end>
+   <name>Deming Lake (PalEON PDL)</name>
+   <lat>47.17</lat>
+   <lon>-95.17</lon>
+  </site>
+  <inputs>
+   <met>
+    <source>PalEON</source>
+    <path>/fs/data1/pecan.data/input//PalEON_site_1-673</path>
+    <id>1000000533</id>
+   </met>
+  </inputs>
+
+  <site>
+   <id>1000000672</id>
+   <met.start>0850-01-01 00:00:00</met.start>
+   <met.end>2010-12-31 23:59:00</met.end>
+   <name>Billy’s Lake (PalEON PBL)</name>
+   <lat>46.28</lat>
+   <lon>-94.58</lon>
+  </site>
+
   <site>
    <id>1000000650</id>
    <met.start>0850-01-01 00:00:00</met.start>

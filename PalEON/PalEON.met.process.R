@@ -59,9 +59,13 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
     # I'm assuming not right now
     assign(stage$id.name,list(
       inputid = input_met$id,
-      dbfileid = db.query(paste0("SELECT id from dbfiles where file_name = '", basename(input_met$path) ,"' AND file_path = '", dirname(input_met$path) ,"'"),con)[[1]]
+      dbfileid = db.query(paste0("SELECT id from dbfiles where container_id = ", input_met$id, 
+                                 "AND machine_id = ", machine$id ),con)[[1]]
     ))
   }
+
+  
+  
   
   #setup additional browndog arguments
   if(!is.null(browndog)){browndog$inputtype <- register$format$inputtype}
@@ -76,71 +80,39 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
   if(stage$download.raw==TRUE){
     outfolder  <- file.path(dir,met)
     pkg        <- "PEcAn.data.atmosphere"
-    fcn        <- paste0("download.",met)
+    fcn        <- paste0("download.dummy.",met)
     
-    if(register$scale=="regional"){ #Right now this only means NARR but will need to be generalized once we have more regional met products
+    print("start CHECK")
+    check = db.query(
+      paste0("SELECT i.start_date, i.end_date, d.file_path, d.container_id, d.id  from dbfiles as d join inputs as i on i.id = d.container_id where i.site_id =",site$id,
+             " and d.container_type = 'Input' and i.format_id=",register$format$id, " and d.machine_id =",machine$id,
+             " and (i.start_date <= DATE '",as.POSIXlt(start_date, tz = "GMT"),"') and (DATE '", as.POSIXlt(end_date, tz = "GMT"),"' <= i.end_date)" ),con)
+    print("end CHECK")
+    options(digits=10)
+    print(check)
+    if(length(check)>0){
+      raw.id <- list(input.id=check$container_id, dbfile.id=check$id)
+    }else{
       
-      print("start CHECK")
-      check = db.query(
-        paste0("SELECT i.start_date, i.end_date, d.file_path, d.container_id, d.id  from dbfiles as d join inputs as i on i.id = d.container_id where i.site_id =",register$siteid,
-               " and d.container_type = 'Input' and i.format_id=",register$format$id, " and d.machine_id =",machine$id,
-               " and (i.start_date <= DATE '",as.POSIXlt(start_date, tz = "GMT"),"') and (DATE '", as.POSIXlt(end_date, tz = "GMT"),"' <= i.end_date)" ),con)
-      print("end CHECK")
-      options(digits=10)
-      print(check)
-      if(length(check)>0){
-        raw.id <- list(input.id=check$container_id, dbfile.id=check$id)
-      }else{
-        
-        args <- list(outfolder, start_date, end_date)
-        cmdFcn  = paste0(pkg,"::",fcn,"(",paste0("'",args,"'",collapse=","),")")
-        new.files <- remote.execute.R(cmdFcn,host$name,user=NA, verbose=TRUE)
-        
-        raw.id <- dbfile.input.insert(in.path=dirname(new.files$file[1]),
-                                      in.prefix=new.files$dbfile.name[1],
-                                      siteid = site$id,
-                                      startdate = start_date,
-                                      enddate = end_date,
-                                      mimetype=new.files$mimetype[1],
-                                      formatname=new.files$formatname[1],
-                                      parentid = NA,
-                                      con = con,
-                                      hostname = host$name)
-      }
+      outfolder = paste0(outfolder,"_site_",str_ns)
+      args <- list(site$name, outfolder, start_date, end_date)
       
-    }else if(register$scale=="site") { # Site-level met
+      source('~/GitHub_Miscellaneous/PalEON/download.dummy.PalEON.R')
+      new.files<- download.dummy.PalEON(site$name, outfolder, start_date, end_date)
       
-      print("start CHECK")
-      check = db.query(
-        paste0("SELECT i.start_date, i.end_date, d.file_path, d.container_id, d.id  from dbfiles as d join inputs as i on i.id = d.container_id where i.site_id =",site$id,
-               " and d.container_type = 'Input' and i.format_id=",register$format$id, " and d.machine_id =",machine$id,
-               " and (i.start_date <= DATE '",as.POSIXlt(start_date, tz = "GMT"),"') and (DATE '", as.POSIXlt(end_date, tz = "GMT"),"' <= i.end_date)" ),con)
-      print("end CHECK")
-      options(digits=10)
-      print(check)
-      if(length(check)>0){
-        raw.id <- list(input.id=check$container_id, dbfile.id=check$id)
-      }else{
-        
-        outfolder = paste0(outfolder,"_site_",str_ns)
-        args <- list(site$name, outfolder, start_date, end_date)
-        
-        cmdFcn  = paste0(pkg,"::",fcn,"(",paste0("'",args,"'",collapse=","),")")
-        new.files <- remote.execute.R(script=cmdFcn,host=host$name,user=NA,verbose=TRUE,R="R")
-        
-        ## insert database record
-        raw.id <- dbfile.input.insert(in.path=dirname(new.files$file[1]),
-                                      in.prefix=new.files$dbfile.name[1],
-                                      siteid = site$id,
-                                      startdate = start_date,
-                                      enddate = end_date,
-                                      mimetype=new.files$mimetype[1],
-                                      formatname=new.files$formatname[1],
-                                      parentid=NA,
-                                      con = con,
-                                      hostname = host$name)
-      }
+      ## insert database record
+      raw.id <- dbfile.input.insert(in.path=dirname(new.files$file[1]),
+                                    in.prefix=new.files$dbfile.name[1],
+                                    siteid = site$id,
+                                    startdate = start_date,
+                                    enddate = end_date,
+                                    mimetype=new.files$mimetype[1],
+                                    formatname=new.files$formatname[1],
+                                    parentid=NA,
+                                    con = con,
+                                    hostname = host$name)
     }
+    
   }
   
   #--------------------------------------------------------------------------------------------------#
@@ -156,56 +128,7 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
     format.id <- 33
     
     
-    if(register$scale=="regional"){
-      
-      input_name <- paste0(met,"_CF")
-      outfolder  <- file.path(dir,input_name)
-      
-      print("start CHECK")
-      check = db.query(
-        paste0("SELECT i.start_date, i.end_date, d.file_path, d.container_id, d.id  from dbfiles as d join inputs as i on i.id = d.container_id where i.site_id =",register$siteid,
-               " and d.container_type = 'Input' and i.format_id=",format.id, " and d.machine_id =",machine$id, " and i.name = '", input_name,
-               "' and (i.start_date <= DATE '",as.POSIXlt(start_date, tz = "GMT"),"') and (DATE '", as.POSIXlt(end_date, tz = "GMT"),"' <= i.end_date)" ),con)
-      print("end CHECK")
-      options(digits=10)
-      print(check)
-      if(length(check)>0){
-        cf0.id <- list(input.id=check$container_id, dbfile.id=check$id)
-      }else{
-        
-        fcn1 <- paste0("met2CF.",met)
-        fcn2 <- paste0("met2CF.",register$format$mimetype)
-        if(exists(fcn1)){
-          fcn <- fcn1
-        }else if(exists(fcn2)){
-          fcn <- fcn2
-        }else{logger.error("met2CF function doesn't exists")}
-        
-        cf0.id <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site$id,start_date,end_date,pkg,fcn,
-                                username,con=con,hostname=host$name,browndog=NULL,write=TRUE)
-      }
-      
-      input_name <- paste0(met,"_CF_Permute")
-      fcn       <-  "permute.nc"
-      outfolder  <- file.path(dir,input_name)
-      
-      print("start CHECK")
-      check = db.query(
-        paste0("SELECT i.start_date, i.end_date, d.file_path, d.container_id, d.id  from dbfiles as d join inputs as i on i.id = d.container_id where i.site_id =",register$siteid,
-               " and d.container_type = 'Input' and i.format_id=",format.id, " and d.machine_id =",machine$id, " and i.name = '", input_name,
-               "' and (i.start_date <= DATE '",as.POSIXlt(start_date, tz = "GMT"),"') and (DATE '", as.POSIXlt(end_date, tz = "GMT"),"' <= i.end_date)" ),con)
-      print("end CHECK")
-      options(digits=10)
-      print(check)
-      if(length(check)>0){
-        cf.id <- list(input.id=check$container_id, dbfile.id=check$id)
-      }else{
-        # Just a draft of what would happen - doesn't include using the cluster so it would be SLOW. Hasn't been tested.
-        cf.id <- convert.input(cf0.id, outfolder2,formatname,mimetype,site.id=site$id,start_date,end_date,pkg,permute.nc,
-                               username,con=con,hostname=host$name,browndog=NULL,write=TRUE)
-      }
-      
-    }else if(register$scale=="site"){
+    if(register$scale=="site"){
       
       input_name <- paste0(met,"_CF_site_",str_ns)
       outfolder  <- file.path(dir,input_name)
@@ -226,67 +149,18 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
         if(exists(fcn1)){
           fcn <- fcn1
           cf.id <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site$id,start_date,end_date,pkg,fcn,
-                                 username,con=con,hostname=host$name,browndog=NULL,write=TRUE,site$lat,site$lon) 
+                                 username,con=con,hostname=host$name,browndog=NULL,write=TRUE,lat=site$lat,lon=site$lon) 
         }else if(exists(fcn2)){
           fcn <- fcn2
           format <- query.format(input.id,con)
           cf.id <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site$id,start_date,end_date,pkg,fcn,
-                                 username,con=con,hostname=host$name,browndog=NULL,write=TRUE,site$lat,site$lon,format) 
+                                 username,con=con,hostname=host$name,browndog=NULL,write=TRUE,lat=site$lat,lon=site$lon,format) 
         }else{logger.error("met2CF function doesn't exists")}
       }  
     }
     
     logger.info("Finished change to CF Standards")
   }
-  
-  #--------------------------------------------------------------------------------------------------#
-#   # Change to Site Level - Standardized Met (i.e. ready for conversion to model specific format)
-#   
-#   if(stage$standardize == TRUE){
-#     logger.info("Begin Standardize Met")
-#     
-#     if(register$scale=="regional"){ #### Site extraction
-#       
-#       logger.info("Site Extraction")
-#       
-#       input.id   <- cf.id[1]
-#       outfolder  <- file.path(dir,paste0(met,"_CF_site_",str_ns))
-#       pkg        <- "PEcAn.data.atmosphere"
-#       fcn        <- "extract.nc"
-#       formatname <- 'CF Meteorology'
-#       mimetype   <- 'application/x-netcdf'
-#       
-#       ready.id <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site$id,start_date,end_date,pkg,fcn,
-#                                 username,con=con,hostname=host$name,browndog=NULL,write=TRUE,
-#                                 slat=new.site$lat,slon=new.site$lon,newsite=new.site$id)
-#       
-#     }else if(register$scale=="site"){ ##### Site Level Processing
-#       if(!is.null(register$gapfill)){
-#         logger.info("Gapfilling") # Does NOT take place on browndog!
-#         
-#         input.id   <- cf.id[1]
-#         outfolder  <- file.path(dir,paste0(met,"_CF_gapfill_site_",str_ns))
-#         pkg        <- "PEcAn.data.atmosphere"
-#         fcn        <- register$gapfill
-#         formatname <- 'CF Meteorology'
-#         mimetype   <- 'application/x-netcdf'
-#         lst        <- site.lst(site,con)
-#         
-#         ready.id   <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site$id
-#                                     ,start_date,end_date,pkg,fcn,username,con=con,
-#                                     hostname=host$name,browndog=NULL,write=TRUE,lst=lst)
-#       }else{
-#         ready.id<-cf.id[1]
-#       }
-#       
-#     }
-#     logger.info("Finished Standardize Met")
-#   }
-#   
-  #--------------------------------------------------------------------------------------------------#
-  # Prepare for Model
-  
-  ready.id <- cf.id
   
   if(stage$met2model == TRUE){
     logger.info("Begin Model Specific Conversion")
@@ -301,7 +175,7 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
     mimetype   <- model_info[3]
     
     print("# Convert to model format")
-    
+    ready.id <- cf.id
     input.id  <- ready.id[1]
     outfolder <- file.path(dir,paste0(met,"_",model,"_site_",str_ns))
     pkg       <- paste0("PEcAn.",model)

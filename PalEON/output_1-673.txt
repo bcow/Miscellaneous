@@ -1,0 +1,36 @@
+  scale format.id     format.name      format.mimetype format.inputtype
+1  site        16 ALMA Meterology application/x-netcdf        pecan.zip
+[1] "start CHECK"
+[1] "end CHECK"
+data frame with 0 columns and 0 rows
+[1] "start CHECK"
+[1] "end CHECK"
+data frame with 0 columns and 0 rows
+[1] "PEcAn.data.atmosphere::met2CF.PalEON('/fs/data1/pecan.data/input//PalEON_site_1-673','PalEON','/fs/data1/pecan.data/input//PalEON_CF_site_1-673/','0850/01/01','2009/12/31',lat = 47.17,lon = -95.17)"
+
+R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> remotefunc <- function() {
++ PEcAn.data.atmosphere::met2CF.PalEON('/fs/data1/pecan.data/input//PalEON_site_1-673','PalEON','/fs/data1/pecan.data/input//PalEON_CF_site_1-673/','0850/01/01','2009/12/31',lat = 47.17,lon = -95.17)
++ }
+> remoteout <- remotefunc()
+[1] 1
+[1] "RESULTS: Convert.Input"
+[1] 1
+NULL
