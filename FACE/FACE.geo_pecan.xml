@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <pecan>
- <outdir>/usr2/collab/ecowdery/FACE/FACE_runs/</outdir>
+ <outdir>/home/ecowdery/met_process_tests/</outdir>
 
  <browndog>
    <!--
@@ -54,7 +54,7 @@
   <end.date>2007-12-31 00:00:00</end.date>
   
   <host>
-   <name>test-pecan.bu.edu</name>
+   <name>geo.bu.edu</name>
   </host>
   
   <dbfiles>/projectnb/dietzelab/pecan.data/input/</dbfiles>
