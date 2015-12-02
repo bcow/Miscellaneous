@@ -9,8 +9,10 @@ require(PEcAn.data.atmosphere)
 
 xml_file <- "/home/ecowdery/GitHub_Miscellaneous/FACE/FACE.pecan2_pecan.xml"
 settings <- read.settings(xml_file)
+
 # settings <- xmlToList(xmlParse(xml_file))
 # settings <- xmlToList(xmlParse("/home/ecowdery/GitHub_Miscellaneous/FACE/FACE.geo_pecan.xml"))
+
 
 site       = settings$run$site 
 input_met  = settings$run$inputs$met
