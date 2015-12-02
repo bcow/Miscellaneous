@@ -17,7 +17,7 @@
    <constants>
     <num>1</num>
    </constants>
-   <outdir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output//pft/Tsuga canadensis</outdir>
+   <outdir>/home/ecowdery/GitHub_Miscellaneous//Linkages_tests//output//pft//Tsuga canadensis</outdir>
   </pft>
  </pfts>
  <meta.analysis>
@@ -27,10 +27,11 @@
   <update>AUTO</update>
  </meta.analysis>
  <model>
-  <id>1000000005</id>
+  <id>1000000008</id>
   <type>LINKAGES</type>
-  <revision>Revision 1.0 Ann&apos;s hack</revision>
-  <binary>/home/ecowdery/Linkages/linkages</binary>
+  <revision>R_version</revision>
+  <binary>/home/ecowdery/linkages_package</binary>
+  <delete.raw>FALSE</delete.raw>
  </model>
  <run>
   <site>
@@ -43,21 +44,22 @@
   </site>
   <inputs>
    <met>
-    <id>1000000481</id>
-    <path>/fs/data1/pecan.data/input/PalEON_LINKAGES_site_1-650/climate.txt</path>
+    <source>PalEON</source>
+    <id>1000000478</id>
+    <path>/fs/data1/pecan.data/input/PalEON_CF_site_1-650/PalEON</path>
    </met>
   </inputs>
   <start.date>0850/01/01</start.date>
   <end.date>2009/12/31</end.date>
+  <dbfiles>/fs/data1/pecan.data/input</dbfiles>
   <host>
    <name>localhost</name>
    <rundir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output//run</rundir>
    <outdir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output//out</outdir>
   </host>
-  <dbfiles>/home/ecowdery/.pecan/dbfiles</dbfiles>
  </run>
  <workflow>
-  <id>1000000670</id>
+  <id>1000000746</id>
  </workflow>
  <rundir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output//run</rundir>
  <modeloutdir>/home/ecowdery/GitHub_Miscellaneous/Linkages_tests/output//out</modeloutdir>
