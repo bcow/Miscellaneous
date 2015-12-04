@@ -44,17 +44,17 @@
  <run>
 
   <site>
-   <id>666</id>
-   <name>Oak Ridge National Laboratory (FACE-ORNL)</name>
-   <lat>35.93</lat>
-   <lon>-84.31</lon>
+   <id>1000000008</id>
+   <name>Rhinelander Aspen FACE Experiment (FACE-RHIN)</name>
+   <lat>45.6</lat>
+   <lon>-89.5</lon>
   </site>
   
-  <start.date>1996-01-01 00:00:00</start.date>
-  <end.date>2007-12-31 00:00:00</end.date>
+  <start.date>1998-01-01 00:00:00</start.date>
+  <end.date>2008-12-31 00:00:00</end.date>
   
   <host>
-   <name>test-pecan.bu.edu</name>
+   <name>localhost</name>
   </host>
   
   <dbfiles>/fs/data1/pecan.data/input</dbfiles>

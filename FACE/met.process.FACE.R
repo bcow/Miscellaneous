@@ -10,7 +10,9 @@ require(PEcAn.data.atmosphere)
 xml_file <- "/home/ecowdery/GitHub_Miscellaneous/FACE/FACE.pecan2_pecan.xml"
 settings <- read.settings(xml_file)
 
-settings <- xmlToList(xmlParse("/home/ecowdery/GitHub_Miscellaneous/FACE/FACE.geo_pecan.xml"))
+# settings <- xmlToList(xmlParse(xml_file))
+# settings <- xmlToList(xmlParse("/home/ecowdery/GitHub_Miscellaneous/FACE/FACE.geo_pecan.xml"))
+
 
 site       = settings$run$site 
 input_met  = settings$run$inputs$met
@@ -73,7 +75,6 @@ check = db.query(
 print("end CHECK")
 options(digits=10)
 print(check)
-
 
 if(length(check)>0){
   raw.id <- list(input.id=check$container_id, dbfile.id=check$id)
@@ -138,12 +139,13 @@ if(length(acheck)>0 & length(echeck)>0){
   cf.id.e <- list(input.id=echeck$container_id, dbfile.id=echeck$id)
 }else{
   
-  in.path <- db.query(paste("SELECT file_path from dbfiles where container_id =", raw.id[1] ),con)[[1]][[1]]
+  files <- db.query(paste("SELECT file_path from dbfiles where container_id =", raw.id[1] ),con)[[1]]
+  in.path <- files[grep(pattern=paste0("*FACE*"),files)]
   in.prefix <- "FACE"
   outfolder <- outfolder
   
-  
-  met2CF.FACE(in.path,in.prefix,outfolder,start_date,end_date)
+  source('~/pecan/modules/data.atmosphere/R/met2CF.FACE.R')
+  met2CF.FACE(in.path,in.prefix,outfolder,start_date,end_date,site)
   
 }
 
@@ -204,13 +206,26 @@ model.id.a  <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site
                            pkg,fcn,username,con=con,hostname=host$name,browndog=NULL,write=TRUE,lst=lst,
                            lat=new.site$lat,lon=new.site$lon)
 
-site.id=site$id
-hostname=host$name
-write=TRUE
-l <- list(
+# site.id=site$id
+# hostname=host$name
+# browndog=NULL
+# write=TRUE
+# l <- list(
+#   lst=lst,
+#   lat=new.site$lat,
+#   lon=new.site$lon)
+# 
+# 
+met2model.ED2(
+  in.path = file.path(dir, a_input_name),
+  in.prefix = 'FACE',
+  outfolder = outfolder,
+  start_date = start_date,
+  end_date = end_date,
   lst=lst,
   lat=new.site$lat,
   lon=new.site$lon)
+
 
 
 ########################################################
@@ -226,16 +241,24 @@ model.id.e  <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site
                            pkg,fcn,username,con=con,hostname=host$name,browndog=NULL,write=TRUE,lst=lst,
                            lat=new.site$lat,lon=new.site$lon)
 
-site.id=site$id
-hostname=host$name
-write=TRUE
-l <- list(
+# site.id=site$id
+# hostname=host$name
+# write=TRUE
+# l <- list(
+#   lst=lst,
+#   lat=new.site$lat,
+#   lon=new.site$lon)
+
+
+met2model.ED2(
+  in.path = file.path(dir, e_input_name),
+  in.prefix = 'FACE',
+  outfolder = outfolder,
+  start_date = start_date,
+  end_date = end_date,
   lst=lst,
   lat=new.site$lat,
   lon=new.site$lon)
-
-
-
 
 
 
