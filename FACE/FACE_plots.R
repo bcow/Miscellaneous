@@ -1,129 +1,52 @@
-require(ncdf4)
-require(ncdf4.helpers)
+load("~/GitHub_Miscellaneous/FACE/FACE_CDIAC_obvs.Rdata")
+load("~/GitHub_Miscellaneous/FACE/FACE_summary.Rdata")
+load("~/GitHub_Miscellaneous/FACE/FACE_years.Rdata")
+#############
+
+par(mfrow = c(2,3))
+
+a <- which(DUKE_obvs$CO2 == "amb")
+e <- which(DUKE_obvs$CO2 == "elev")
+plot(DUKE_obvs$YEAR[a], DUKE_obvs$NPP[a], col="blue", xlim = c(1996,2007), ylim = c(min(DUKE_obvs$NPP[a]), max(DUKE_obvs$NPP[e])))
+lines(unique(DUKE_obvs$YEAR[a]),tapply(DUKE_obvs$NPP[a], mean, INDEX = DUKE_obvs$YEAR[a]), col="blue")
+points(DUKE_obvs$YEAR[e], DUKE_obvs$NPP[e], col="red")
+lines(unique(DUKE_obvs$YEAR[e]),tapply(DUKE_obvs$NPP[e], mean, INDEX = DUKE_obvs$YEAR[e]), col="red")
 
 
-year_98_08 <- c(
-  rep(1998,365),
-  rep(1999,365),
-  rep(2000,366),
-  rep(2001,365),
-  rep(2002,365),
-  rep(2003,365),
-  rep(2004,366),
-  rep(2005,365),
-  rep(2006,365),
-  rep(2007,365),
-  rep(2008,366)  
-)
+title("DUKE")
 
-year_96_07 <- c(
-  rep(1996,366),
-  rep(1997,365),
-  rep(1998,365),
-  rep(1999,365),
-  rep(2000,366),
-  rep(2001,365),
-  rep(2002,365),
-  rep(2003,365),
-  rep(2004,366),
-  rep(2005,365),
-  rep(2006,365),
-  rep(2007,365)
-)
+a <- which(ORNL_obvs$CO2 == "amb")
+e <- which(ORNL_obvs$CO2 == "elev")
+plot(ORNL_obvs$YEAR[a], ORNL_obvs$NPP[a], col="blue", xlim = c(1998,2008), ylim = c(min(ORNL_obvs$NPP[a]), max(ORNL_obvs$NPP[e])))
+lines(unique(ORNL_obvs$YEAR[a]),tapply(ORNL_obvs$NPP[a], mean, INDEX = ORNL_obvs$YEAR[a]), col="blue")
+points(ORNL_obvs$YEAR[e], ORNL_obvs$NPP[e], col="red")
+lines(unique(ORNL_obvs$YEAR[e]),tapply(ORNL_obvs$NPP[e], mean, INDEX = ORNL_obvs$YEAR[e]), col="red")
 
-par(mfrow=c(1,3))
+title("ORNL")
 
 
-###################################################################################################
-###################################################################################################
-# DUKE 
 
-year <- year_96_07
-length(year)
 
-WFID <- 1000000951 #AMBIENT
+sort_yrs <- sort(RHIN_obvs$YEAR, index.return=TRUE)
+RHIN_obvs$YEAR <- RHIN_obvs$YEAR[sort_yrs$ix]
+RHIN_obvs$NPP  <- RHIN_obvs$NPP[sort_yrs$ix]
+RHIN_obvs$CO2  <- RHIN_obvs$CO2[sort_yrs$ix]
 
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-#plot(npp, type="l")
-length(npp)
+a <- which(RHIN_obvs$CO2 == "amb")
+e <- which(RHIN_obvs$CO2 == "elev")
 
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
+plot(RHIN_obvs$YEAR[a], RHIN_obvs$NPP[a], col="blue", xlim = c(1998,2008), ylim = c(min(RHIN_obvs$NPP[a]), max(RHIN_obvs$NPP[e])))
+lines(unique(RHIN_obvs$YEAR[a]),tapply(RHIN_obvs$NPP[a], mean, INDEX = RHIN_obvs$YEAR[a]), col="blue")
+points(RHIN_obvs$YEAR[e], RHIN_obvs$NPP[e], col="red")
+lines(unique(RHIN_obvs$YEAR[e]),tapply(RHIN_obvs$NPP[e], mean, INDEX = RHIN_obvs$YEAR[e]), col="red")
 
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
+title("RHIN")
 
-nc.get.variable.list(nc)
 
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
+#------------------------------------------------#
 
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-DUKE_a_NPP_Y_up <- up_NPP_Y 
-DUKE_a_NPP_Y_mean <- mean_NPP_Y
-DUKE_a_NPP_Y_lw <- lw_NPP_Y 
-
-#-----------------------------------#
-
-WFID <- 1000000952 #ELEVATED
-
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-#plot(npp, type="l")
-length(npp)
-
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
-
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
-
-nc.get.variable.list(nc)
-
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
-
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-DUKE_e_NPP_Y_up <- up_NPP_Y 
-DUKE_e_NPP_Y_mean <- mean_NPP_Y
-DUKE_e_NPP_Y_lw <- lw_NPP_Y 
-
-### FINAL PLOT 
-
-plot(yrs, DUKE_e_NPP_Y_mean, type="l",ylim = c(min(ORNL_a_NPP_Y_lw), max(ORNL_e_NPP_Y_up)), col="red", lwd=3)
+yrs <- unique(year_96_07)
+plot(yrs, DUKE_e_NPP_Y_mean, type="l",ylim = c(min(DUKE_a_NPP_Y_lw), max(DUKE_e_NPP_Y_up)), col="red", lwd=3)
 lines(yrs, DUKE_a_NPP_Y_mean, col="blue", lwd=3)
 
 lines(yrs, DUKE_e_NPP_Y_up, lty=2, col="red")
@@ -131,95 +54,10 @@ lines(yrs, DUKE_e_NPP_Y_lw, lty=2, col="red")
 
 lines(yrs, DUKE_a_NPP_Y_up, lty=2, col="blue")
 lines(yrs, DUKE_a_NPP_Y_lw, lty=2, col="blue")
-title("DUKE")
 
-###################################################################################################
-###################################################################################################
-# ORNL 
+#------------------------------------------------#
 
-year <- year_98_08
-length(year)
-
-WFID <- 1000000945 #AMBIENT
-
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-length(npp)
-
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
-
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
-
-nc.get.variable.list(nc)
-
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
-
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-ORNL_a_NPP_Y_up <- up_NPP_Y 
-ORNL_a_NPP_Y_mean <- mean_NPP_Y
-ORNL_a_NPP_Y_lw <- lw_NPP_Y 
-
-#-----------------------------------#
-
-WFID <- 1000000954 #ELEVATED
-
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-length(npp)
-
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
-
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
-
-nc.get.variable.list(nc)
-
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
-
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-ORNL_e_NPP_Y_up <- up_NPP_Y 
-ORNL_e_NPP_Y_mean <- mean_NPP_Y
-ORNL_e_NPP_Y_lw <- lw_NPP_Y 
-
-### FINAL PLOT 
-
+yrs <- unique(year_98_08)
 plot(yrs, ORNL_e_NPP_Y_mean, type="l",ylim = c(min(ORNL_a_NPP_Y_lw), max(ORNL_e_NPP_Y_up)), col="red", lwd=3)
 lines(yrs, ORNL_a_NPP_Y_mean, col="blue", lwd=3)
 
@@ -228,95 +66,10 @@ lines(yrs, ORNL_e_NPP_Y_lw, lty=2, col="red")
 
 lines(yrs, ORNL_a_NPP_Y_up, lty=2, col="blue")
 lines(yrs, ORNL_a_NPP_Y_lw, lty=2, col="blue")
-title("ORNL")
 
-###################################################################################################
-###################################################################################################
-# RHIN 
+#------------------------------------------------#
 
-year <- year_98_08
-length(year)
-
-WFID <- 1000000955 #AMBIENT
-
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-length(npp)
-
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
-
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
-
-nc.get.variable.list(nc)
-
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
-
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-RHIN_a_NPP_Y_up <- up_NPP_Y 
-RHIN_a_NPP_Y_mean <- mean_NPP_Y
-RHIN_a_NPP_Y_lw <- lw_NPP_Y 
-
-#-----------------------------------#
-
-WFID <- 1000000956 #ELEVATED
-
-runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
-nc <- nc_open(file.path(runs[1],"2004.nc"))
-npp <- ncvar_get(nc,"NPP")
-length(npp)
-
-NPP <- matrix(NA, nrow=length(runs), ncol=length(npp))
-NPP_Y <- matrix(NA, nrow=length(runs), ncol=length(unique(year)))
-
-for(i in 1:length(runs)){
-  nc <- nc_open(file.path(runs[i],"2004.nc"))
-  npp <- ncvar_get(nc,"NPP")
-  print(i)
-  print(length(npp))
-  NPP[i,] <- c(npp, rep(NA, length(year)-length(npp)))
-  NPP_Y[i,] <- tapply(NPP[i,], FUN=mean, INDEX=year)
-  # lines(npp,col=i+1)
-}
-
-nc.get.variable.list(nc)
-
-max_NPP_Y <- apply(NPP_Y, 2, max)
-up_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .975, na.rm = TRUE))
-mean_NPP_Y <- colMeans(NPP_Y, na.rm = TRUE)
-lw_NPP_Y <- apply(NPP_Y, 2, FUN = function(x) quantile(x, .025, na.rm = TRUE))
-min_NPP_Y <- apply(NPP_Y, 2, min)
-
-yrs <- unique(year)
-
-# plot(yrs, up_NPP_Y, type = "l", ylim = c(min(lw_NPP_Y), max(up_NPP_Y)), col = "red", lty=2)
-# lines(yrs,lw_NPP_Y, col = "red", lty=2)
-# lines(yrs,mean_NPP_Y, lwd=3)
-
-RHIN_e_NPP_Y_up <- up_NPP_Y 
-RHIN_e_NPP_Y_mean <- mean_NPP_Y
-RHIN_e_NPP_Y_lw <- lw_NPP_Y 
-
-### FINAL PLOT 
-
+yrs <- unique(year_98_08)
 plot(yrs, RHIN_e_NPP_Y_mean, type="l",ylim = c(min(RHIN_a_NPP_Y_lw), max(RHIN_e_NPP_Y_up)), col="red", lwd=3)
 lines(yrs, RHIN_a_NPP_Y_mean, col="blue", lwd=3)
 
@@ -325,6 +78,5 @@ lines(yrs, RHIN_e_NPP_Y_lw, lty=2, col="red")
 
 lines(yrs, RHIN_a_NPP_Y_up, lty=2, col="blue")
 lines(yrs, RHIN_a_NPP_Y_lw, lty=2, col="blue")
-title("RHIN")
 
 

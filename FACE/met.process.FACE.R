@@ -140,7 +140,7 @@ if(length(acheck)>0 & length(echeck)>0){
 }else{
   
   files <- db.query(paste("SELECT file_path from dbfiles where container_id =", raw.id[1] ),con)[[1]]
-  in.path <- files[grep(pattern=paste0("*FACE*"),files)]
+  in.path <- files[grep(pattern=paste0("*FACE*"),files)][[1]]
   in.prefix <- "FACE"
   outfolder <- outfolder
   
@@ -215,16 +215,16 @@ model.id.a  <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site
 #   lat=new.site$lat,
 #   lon=new.site$lon)
 # 
-# 
-met2model.ED2(
-  in.path = file.path(dir, a_input_name),
-  in.prefix = 'FACE',
-  outfolder = outfolder,
-  start_date = start_date,
-  end_date = end_date,
-  lst=lst,
-  lat=new.site$lat,
-  lon=new.site$lon)
+# # 
+# met2model.ED2(
+#   in.path = file.path(dir, a_input_name),
+#   in.prefix = 'FACE',
+#   outfolder = outfolder,
+#   start_date = start_date,
+#   end_date = end_date,
+#   lst=lst,
+#   lat=new.site$lat,
+#   lon=new.site$lon)
 
 
 
@@ -250,15 +250,15 @@ model.id.e  <- convert.input(input.id,outfolder,formatname,mimetype,site.id=site
 #   lon=new.site$lon)
 
 
-met2model.ED2(
-  in.path = file.path(dir, e_input_name),
-  in.prefix = 'FACE',
-  outfolder = outfolder,
-  start_date = start_date,
-  end_date = end_date,
-  lst=lst,
-  lat=new.site$lat,
-  lon=new.site$lon)
+# met2model.ED2(
+#   in.path = file.path(dir, e_input_name),
+#   in.prefix = 'FACE',
+#   outfolder = outfolder,
+#   start_date = start_date,
+#   end_date = end_date,
+#   lst=lst,
+#   lat=new.site$lat,
+#   lon=new.site$lon)
 
 
 
