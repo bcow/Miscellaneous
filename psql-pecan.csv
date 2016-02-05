@@ -1,0 +1,892 @@
+"","dbms","table_catalog","table_schema","table_name","column_name","ordinal_position","data_type","character_maximum_length","constraint_type","table_schema","table_name","column_name"
+"1","postgresql","bety","public","spatial_ref_sys","srid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"2","postgresql","bety","public","spatial_ref_sys","auth_name",2,"character varying",256,NA,NA,NA,NA
+"3","postgresql","bety","public","spatial_ref_sys","auth_srid",3,"integer",NA,NA,NA,NA,NA
+"4","postgresql","bety","public","spatial_ref_sys","srtext",4,"character varying",2048,NA,NA,NA,NA
+"5","postgresql","bety","public","spatial_ref_sys","proj4text",5,"character varying",2048,NA,NA,NA,NA
+"6","postgresql","bety","tiger","geocode_settings","name",1,"text",NA,"PRIMARY KEY",NA,NA,NA
+"7","postgresql","bety","tiger","geocode_settings","setting",2,"text",NA,NA,NA,NA,NA
+"8","postgresql","bety","tiger","geocode_settings","unit",3,"text",NA,NA,NA,NA,NA
+"9","postgresql","bety","tiger","geocode_settings","category",4,"text",NA,NA,NA,NA,NA
+"10","postgresql","bety","tiger","geocode_settings","short_desc",5,"text",NA,NA,NA,NA,NA
+"11","postgresql","bety","tiger","direction_lookup","name",1,"character varying",20,"PRIMARY KEY",NA,NA,NA
+"12","postgresql","bety","tiger","direction_lookup","abbrev",2,"character varying",3,NA,NA,NA,NA
+"13","postgresql","bety","tiger","secondary_unit_lookup","name",1,"character varying",20,"PRIMARY KEY",NA,NA,NA
+"14","postgresql","bety","tiger","secondary_unit_lookup","abbrev",2,"character varying",5,NA,NA,NA,NA
+"15","postgresql","bety","tiger","state_lookup","st_code",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"16","postgresql","bety","tiger","state_lookup","name",2,"character varying",40,"UNIQUE",NA,NA,NA
+"17","postgresql","bety","tiger","state_lookup","abbrev",3,"character varying",3,"UNIQUE",NA,NA,NA
+"18","postgresql","bety","tiger","state_lookup","statefp",4,"character",2,"UNIQUE",NA,NA,NA
+"19","postgresql","bety","tiger","street_type_lookup","name",1,"character varying",50,"PRIMARY KEY",NA,NA,NA
+"20","postgresql","bety","tiger","street_type_lookup","abbrev",2,"character varying",50,NA,NA,NA,NA
+"21","postgresql","bety","tiger","street_type_lookup","is_hw",3,"boolean",NA,NA,NA,NA,NA
+"22","postgresql","bety","tiger","place_lookup","st_code",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"23","postgresql","bety","tiger","place_lookup","state",2,"character varying",2,NA,NA,NA,NA
+"24","postgresql","bety","tiger","place_lookup","pl_code",3,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"25","postgresql","bety","tiger","place_lookup","name",4,"character varying",90,NA,NA,NA,NA
+"26","postgresql","bety","tiger","county_lookup","st_code",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"27","postgresql","bety","tiger","county_lookup","state",2,"character varying",2,NA,NA,NA,NA
+"28","postgresql","bety","tiger","county_lookup","co_code",3,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"29","postgresql","bety","tiger","county_lookup","name",4,"character varying",90,NA,NA,NA,NA
+"30","postgresql","bety","tiger","countysub_lookup","st_code",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"31","postgresql","bety","tiger","countysub_lookup","state",2,"character varying",2,NA,NA,NA,NA
+"32","postgresql","bety","tiger","countysub_lookup","co_code",3,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"33","postgresql","bety","tiger","countysub_lookup","county",4,"character varying",90,NA,NA,NA,NA
+"34","postgresql","bety","tiger","countysub_lookup","cs_code",5,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"35","postgresql","bety","tiger","countysub_lookup","name",6,"character varying",90,NA,NA,NA,NA
+"36","postgresql","bety","tiger","zip_lookup_all","zip",1,"integer",NA,NA,NA,NA,NA
+"37","postgresql","bety","tiger","zip_lookup_all","st_code",2,"integer",NA,NA,NA,NA,NA
+"38","postgresql","bety","tiger","zip_lookup_all","state",3,"character varying",2,NA,NA,NA,NA
+"39","postgresql","bety","tiger","zip_lookup_all","co_code",4,"integer",NA,NA,NA,NA,NA
+"40","postgresql","bety","tiger","zip_lookup_all","county",5,"character varying",90,NA,NA,NA,NA
+"41","postgresql","bety","tiger","zip_lookup_all","cs_code",6,"integer",NA,NA,NA,NA,NA
+"42","postgresql","bety","tiger","zip_lookup_all","cousub",7,"character varying",90,NA,NA,NA,NA
+"43","postgresql","bety","tiger","zip_lookup_all","pl_code",8,"integer",NA,NA,NA,NA,NA
+"44","postgresql","bety","tiger","zip_lookup_all","place",9,"character varying",90,NA,NA,NA,NA
+"45","postgresql","bety","tiger","zip_lookup_all","cnt",10,"integer",NA,NA,NA,NA,NA
+"46","postgresql","bety","tiger","zip_lookup_base","zip",1,"character varying",5,"PRIMARY KEY",NA,NA,NA
+"47","postgresql","bety","tiger","zip_lookup_base","state",2,"character varying",40,NA,NA,NA,NA
+"48","postgresql","bety","tiger","zip_lookup_base","county",3,"character varying",90,NA,NA,NA,NA
+"49","postgresql","bety","tiger","zip_lookup_base","city",4,"character varying",90,NA,NA,NA,NA
+"50","postgresql","bety","tiger","zip_lookup_base","statefp",5,"character varying",2,NA,NA,NA,NA
+"51","postgresql","bety","tiger","zip_lookup","zip",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"52","postgresql","bety","tiger","zip_lookup","st_code",2,"integer",NA,NA,NA,NA,NA
+"53","postgresql","bety","tiger","zip_lookup","state",3,"character varying",2,NA,NA,NA,NA
+"54","postgresql","bety","tiger","zip_lookup","co_code",4,"integer",NA,NA,NA,NA,NA
+"55","postgresql","bety","tiger","zip_lookup","county",5,"character varying",90,NA,NA,NA,NA
+"56","postgresql","bety","tiger","zip_lookup","cs_code",6,"integer",NA,NA,NA,NA,NA
+"57","postgresql","bety","tiger","zip_lookup","cousub",7,"character varying",90,NA,NA,NA,NA
+"58","postgresql","bety","tiger","zip_lookup","pl_code",8,"integer",NA,NA,NA,NA,NA
+"59","postgresql","bety","tiger","zip_lookup","place",9,"character varying",90,NA,NA,NA,NA
+"60","postgresql","bety","tiger","zip_lookup","cnt",10,"integer",NA,NA,NA,NA,NA
+"61","postgresql","bety","tiger","county","statefp",2,"character varying",2,NA,NA,NA,NA
+"62","postgresql","bety","tiger","county","countyfp",3,"character varying",3,NA,NA,NA,NA
+"63","postgresql","bety","tiger","county","countyns",4,"character varying",8,NA,NA,NA,NA
+"64","postgresql","bety","tiger","county","cntyidfp",5,"character varying",5,"PRIMARY KEY",NA,NA,NA
+"65","postgresql","bety","tiger","county","name",6,"character varying",100,NA,NA,NA,NA
+"66","postgresql","bety","tiger","county","namelsad",7,"character varying",100,NA,NA,NA,NA
+"67","postgresql","bety","tiger","county","lsad",8,"character varying",2,NA,NA,NA,NA
+"68","postgresql","bety","tiger","county","classfp",9,"character varying",2,NA,NA,NA,NA
+"69","postgresql","bety","tiger","county","mtfcc",10,"character varying",5,NA,NA,NA,NA
+"70","postgresql","bety","tiger","county","csafp",11,"character varying",3,NA,NA,NA,NA
+"71","postgresql","bety","tiger","county","cbsafp",12,"character varying",5,NA,NA,NA,NA
+"72","postgresql","bety","tiger","county","metdivfp",13,"character varying",5,NA,NA,NA,NA
+"73","postgresql","bety","tiger","county","funcstat",14,"character varying",1,NA,NA,NA,NA
+"74","postgresql","bety","tiger","county","aland",15,"bigint",NA,NA,NA,NA,NA
+"75","postgresql","bety","tiger","county","awater",16,"double precision",NA,NA,NA,NA,NA
+"76","postgresql","bety","tiger","county","intptlat",17,"character varying",11,NA,NA,NA,NA
+"77","postgresql","bety","tiger","county","intptlon",18,"character varying",12,NA,NA,NA,NA
+"78","postgresql","bety","tiger","county","the_geom",19,"USER-DEFINED",NA,NA,NA,NA,NA
+"79","postgresql","bety","tiger","county","gid",1,"integer",NA,"UNIQUE",NA,NA,NA
+"80","postgresql","bety","tiger","state","region",2,"character varying",2,NA,NA,NA,NA
+"81","postgresql","bety","tiger","state","division",3,"character varying",2,NA,NA,NA,NA
+"82","postgresql","bety","tiger","state","statefp",4,"character varying",2,"PRIMARY KEY",NA,NA,NA
+"83","postgresql","bety","tiger","state","statens",5,"character varying",8,NA,NA,NA,NA
+"84","postgresql","bety","tiger","state","stusps",6,"character varying",2,"UNIQUE",NA,NA,NA
+"85","postgresql","bety","tiger","state","name",7,"character varying",100,NA,NA,NA,NA
+"86","postgresql","bety","tiger","state","lsad",8,"character varying",2,NA,NA,NA,NA
+"87","postgresql","bety","tiger","state","mtfcc",9,"character varying",5,NA,NA,NA,NA
+"88","postgresql","bety","tiger","state","funcstat",10,"character varying",1,NA,NA,NA,NA
+"89","postgresql","bety","tiger","state","aland",11,"bigint",NA,NA,NA,NA,NA
+"90","postgresql","bety","tiger","state","awater",12,"bigint",NA,NA,NA,NA,NA
+"91","postgresql","bety","tiger","state","intptlat",13,"character varying",11,NA,NA,NA,NA
+"92","postgresql","bety","tiger","state","intptlon",14,"character varying",12,NA,NA,NA,NA
+"93","postgresql","bety","tiger","state","the_geom",15,"USER-DEFINED",NA,NA,NA,NA,NA
+"94","postgresql","bety","tiger","state","gid",1,"integer",NA,"UNIQUE",NA,NA,NA
+"95","postgresql","bety","tiger","place","statefp",2,"character varying",2,NA,NA,NA,NA
+"96","postgresql","bety","tiger","place","placefp",3,"character varying",5,NA,NA,NA,NA
+"97","postgresql","bety","tiger","place","placens",4,"character varying",8,NA,NA,NA,NA
+"98","postgresql","bety","tiger","place","plcidfp",5,"character varying",7,"PRIMARY KEY",NA,NA,NA
+"99","postgresql","bety","tiger","place","name",6,"character varying",100,NA,NA,NA,NA
+"100","postgresql","bety","tiger","place","namelsad",7,"character varying",100,NA,NA,NA,NA
+"101","postgresql","bety","tiger","place","lsad",8,"character varying",2,NA,NA,NA,NA
+"102","postgresql","bety","tiger","place","classfp",9,"character varying",2,NA,NA,NA,NA
+"103","postgresql","bety","tiger","place","cpi",10,"character varying",1,NA,NA,NA,NA
+"104","postgresql","bety","tiger","place","pcicbsa",11,"character varying",1,NA,NA,NA,NA
+"105","postgresql","bety","tiger","place","pcinecta",12,"character varying",1,NA,NA,NA,NA
+"106","postgresql","bety","tiger","place","mtfcc",13,"character varying",5,NA,NA,NA,NA
+"107","postgresql","bety","tiger","place","funcstat",14,"character varying",1,NA,NA,NA,NA
+"108","postgresql","bety","tiger","place","aland",15,"bigint",NA,NA,NA,NA,NA
+"109","postgresql","bety","tiger","place","awater",16,"bigint",NA,NA,NA,NA,NA
+"110","postgresql","bety","tiger","place","intptlat",17,"character varying",11,NA,NA,NA,NA
+"111","postgresql","bety","tiger","place","intptlon",18,"character varying",12,NA,NA,NA,NA
+"112","postgresql","bety","tiger","place","the_geom",19,"USER-DEFINED",NA,NA,NA,NA,NA
+"113","postgresql","bety","tiger","place","gid",1,"integer",NA,"UNIQUE",NA,NA,NA
+"114","postgresql","bety","tiger","zip_state","zip",1,"character varying",5,"PRIMARY KEY",NA,NA,NA
+"115","postgresql","bety","tiger","zip_state","stusps",2,"character varying",2,"PRIMARY KEY",NA,NA,NA
+"116","postgresql","bety","tiger","zip_state","statefp",3,"character varying",2,NA,NA,NA,NA
+"117","postgresql","bety","tiger","zip_state_loc","zip",1,"character varying",5,"PRIMARY KEY",NA,NA,NA
+"118","postgresql","bety","tiger","zip_state_loc","stusps",2,"character varying",2,"PRIMARY KEY",NA,NA,NA
+"119","postgresql","bety","tiger","zip_state_loc","statefp",3,"character varying",2,NA,NA,NA,NA
+"120","postgresql","bety","tiger","zip_state_loc","place",4,"character varying",100,"PRIMARY KEY",NA,NA,NA
+"121","postgresql","bety","tiger","cousub","statefp",2,"character varying",2,NA,NA,NA,NA
+"122","postgresql","bety","tiger","cousub","countyfp",3,"character varying",3,NA,NA,NA,NA
+"123","postgresql","bety","tiger","cousub","cousubfp",4,"character varying",5,NA,NA,NA,NA
+"124","postgresql","bety","tiger","cousub","cousubns",5,"character varying",8,NA,NA,NA,NA
+"125","postgresql","bety","tiger","cousub","cosbidfp",6,"character varying",10,"PRIMARY KEY",NA,NA,NA
+"126","postgresql","bety","tiger","cousub","name",7,"character varying",100,NA,NA,NA,NA
+"127","postgresql","bety","tiger","cousub","namelsad",8,"character varying",100,NA,NA,NA,NA
+"128","postgresql","bety","tiger","cousub","lsad",9,"character varying",2,NA,NA,NA,NA
+"129","postgresql","bety","tiger","cousub","classfp",10,"character varying",2,NA,NA,NA,NA
+"130","postgresql","bety","tiger","cousub","mtfcc",11,"character varying",5,NA,NA,NA,NA
+"131","postgresql","bety","tiger","cousub","cnectafp",12,"character varying",3,NA,NA,NA,NA
+"132","postgresql","bety","tiger","cousub","nectafp",13,"character varying",5,NA,NA,NA,NA
+"133","postgresql","bety","tiger","cousub","nctadvfp",14,"character varying",5,NA,NA,NA,NA
+"134","postgresql","bety","tiger","cousub","funcstat",15,"character varying",1,NA,NA,NA,NA
+"135","postgresql","bety","tiger","cousub","aland",16,"numeric",NA,NA,NA,NA,NA
+"136","postgresql","bety","tiger","cousub","awater",17,"numeric",NA,NA,NA,NA,NA
+"137","postgresql","bety","tiger","cousub","intptlat",18,"character varying",11,NA,NA,NA,NA
+"138","postgresql","bety","tiger","cousub","intptlon",19,"character varying",12,NA,NA,NA,NA
+"139","postgresql","bety","tiger","cousub","the_geom",20,"USER-DEFINED",NA,NA,NA,NA,NA
+"140","postgresql","bety","tiger","cousub","gid",1,"integer",NA,"UNIQUE",NA,NA,NA
+"141","postgresql","bety","tiger","edges","statefp",2,"character varying",2,NA,NA,NA,NA
+"142","postgresql","bety","tiger","edges","countyfp",3,"character varying",3,NA,NA,NA,NA
+"143","postgresql","bety","tiger","edges","tlid",4,"bigint",NA,NA,NA,NA,NA
+"144","postgresql","bety","tiger","edges","tfidl",5,"numeric",NA,NA,NA,NA,NA
+"145","postgresql","bety","tiger","edges","tfidr",6,"numeric",NA,NA,NA,NA,NA
+"146","postgresql","bety","tiger","edges","mtfcc",7,"character varying",5,NA,NA,NA,NA
+"147","postgresql","bety","tiger","edges","fullname",8,"character varying",100,NA,NA,NA,NA
+"148","postgresql","bety","tiger","edges","smid",9,"character varying",22,NA,NA,NA,NA
+"149","postgresql","bety","tiger","edges","lfromadd",10,"character varying",12,NA,NA,NA,NA
+"150","postgresql","bety","tiger","edges","ltoadd",11,"character varying",12,NA,NA,NA,NA
+"151","postgresql","bety","tiger","edges","rfromadd",12,"character varying",12,NA,NA,NA,NA
+"152","postgresql","bety","tiger","edges","rtoadd",13,"character varying",12,NA,NA,NA,NA
+"153","postgresql","bety","tiger","edges","zipl",14,"character varying",5,NA,NA,NA,NA
+"154","postgresql","bety","tiger","edges","zipr",15,"character varying",5,NA,NA,NA,NA
+"155","postgresql","bety","tiger","edges","featcat",16,"character varying",1,NA,NA,NA,NA
+"156","postgresql","bety","tiger","edges","hydroflg",17,"character varying",1,NA,NA,NA,NA
+"157","postgresql","bety","tiger","edges","railflg",18,"character varying",1,NA,NA,NA,NA
+"158","postgresql","bety","tiger","edges","roadflg",19,"character varying",1,NA,NA,NA,NA
+"159","postgresql","bety","tiger","edges","olfflg",20,"character varying",1,NA,NA,NA,NA
+"160","postgresql","bety","tiger","edges","passflg",21,"character varying",1,NA,NA,NA,NA
+"161","postgresql","bety","tiger","edges","divroad",22,"character varying",1,NA,NA,NA,NA
+"162","postgresql","bety","tiger","edges","exttyp",23,"character varying",1,NA,NA,NA,NA
+"163","postgresql","bety","tiger","edges","ttyp",24,"character varying",1,NA,NA,NA,NA
+"164","postgresql","bety","tiger","edges","deckedroad",25,"character varying",1,NA,NA,NA,NA
+"165","postgresql","bety","tiger","edges","artpath",26,"character varying",1,NA,NA,NA,NA
+"166","postgresql","bety","tiger","edges","persist",27,"character varying",1,NA,NA,NA,NA
+"167","postgresql","bety","tiger","edges","gcseflg",28,"character varying",1,NA,NA,NA,NA
+"168","postgresql","bety","tiger","edges","offsetl",29,"character varying",1,NA,NA,NA,NA
+"169","postgresql","bety","tiger","edges","offsetr",30,"character varying",1,NA,NA,NA,NA
+"170","postgresql","bety","tiger","edges","tnidf",31,"numeric",NA,NA,NA,NA,NA
+"171","postgresql","bety","tiger","edges","tnidt",32,"numeric",NA,NA,NA,NA,NA
+"172","postgresql","bety","tiger","edges","the_geom",33,"USER-DEFINED",NA,NA,NA,NA,NA
+"173","postgresql","bety","tiger","edges","gid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"174","postgresql","bety","tiger","addrfeat","tlid",2,"bigint",NA,NA,NA,NA,NA
+"175","postgresql","bety","tiger","addrfeat","statefp",3,"character varying",2,NA,NA,NA,NA
+"176","postgresql","bety","tiger","addrfeat","aridl",4,"character varying",22,NA,NA,NA,NA
+"177","postgresql","bety","tiger","addrfeat","aridr",5,"character varying",22,NA,NA,NA,NA
+"178","postgresql","bety","tiger","addrfeat","linearid",6,"character varying",22,NA,NA,NA,NA
+"179","postgresql","bety","tiger","addrfeat","fullname",7,"character varying",100,NA,NA,NA,NA
+"180","postgresql","bety","tiger","addrfeat","lfromhn",8,"character varying",12,NA,NA,NA,NA
+"181","postgresql","bety","tiger","addrfeat","ltohn",9,"character varying",12,NA,NA,NA,NA
+"182","postgresql","bety","tiger","addrfeat","rfromhn",10,"character varying",12,NA,NA,NA,NA
+"183","postgresql","bety","tiger","addrfeat","rtohn",11,"character varying",12,NA,NA,NA,NA
+"184","postgresql","bety","tiger","addrfeat","zipl",12,"character varying",5,NA,NA,NA,NA
+"185","postgresql","bety","tiger","addrfeat","zipr",13,"character varying",5,NA,NA,NA,NA
+"186","postgresql","bety","tiger","addrfeat","edge_mtfcc",14,"character varying",5,NA,NA,NA,NA
+"187","postgresql","bety","tiger","addrfeat","parityl",15,"character varying",1,NA,NA,NA,NA
+"188","postgresql","bety","tiger","addrfeat","parityr",16,"character varying",1,NA,NA,NA,NA
+"189","postgresql","bety","tiger","addrfeat","plus4l",17,"character varying",4,NA,NA,NA,NA
+"190","postgresql","bety","tiger","addrfeat","plus4r",18,"character varying",4,NA,NA,NA,NA
+"191","postgresql","bety","tiger","addrfeat","lfromtyp",19,"character varying",1,NA,NA,NA,NA
+"192","postgresql","bety","tiger","addrfeat","ltotyp",20,"character varying",1,NA,NA,NA,NA
+"193","postgresql","bety","tiger","addrfeat","rfromtyp",21,"character varying",1,NA,NA,NA,NA
+"194","postgresql","bety","tiger","addrfeat","rtotyp",22,"character varying",1,NA,NA,NA,NA
+"195","postgresql","bety","tiger","addrfeat","offsetl",23,"character varying",1,NA,NA,NA,NA
+"196","postgresql","bety","tiger","addrfeat","offsetr",24,"character varying",1,NA,NA,NA,NA
+"197","postgresql","bety","tiger","addrfeat","the_geom",25,"USER-DEFINED",NA,NA,NA,NA,NA
+"198","postgresql","bety","tiger","addrfeat","gid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"199","postgresql","bety","tiger","faces","tfid",2,"numeric",NA,NA,NA,NA,NA
+"200","postgresql","bety","tiger","faces","statefp00",3,"character varying",2,NA,NA,NA,NA
+"201","postgresql","bety","tiger","faces","countyfp00",4,"character varying",3,NA,NA,NA,NA
+"202","postgresql","bety","tiger","faces","tractce00",5,"character varying",6,NA,NA,NA,NA
+"203","postgresql","bety","tiger","faces","blkgrpce00",6,"character varying",1,NA,NA,NA,NA
+"204","postgresql","bety","tiger","faces","blockce00",7,"character varying",4,NA,NA,NA,NA
+"205","postgresql","bety","tiger","faces","cousubfp00",8,"character varying",5,NA,NA,NA,NA
+"206","postgresql","bety","tiger","faces","submcdfp00",9,"character varying",5,NA,NA,NA,NA
+"207","postgresql","bety","tiger","faces","conctyfp00",10,"character varying",5,NA,NA,NA,NA
+"208","postgresql","bety","tiger","faces","placefp00",11,"character varying",5,NA,NA,NA,NA
+"209","postgresql","bety","tiger","faces","aiannhfp00",12,"character varying",5,NA,NA,NA,NA
+"210","postgresql","bety","tiger","faces","aiannhce00",13,"character varying",4,NA,NA,NA,NA
+"211","postgresql","bety","tiger","faces","comptyp00",14,"character varying",1,NA,NA,NA,NA
+"212","postgresql","bety","tiger","faces","trsubfp00",15,"character varying",5,NA,NA,NA,NA
+"213","postgresql","bety","tiger","faces","trsubce00",16,"character varying",3,NA,NA,NA,NA
+"214","postgresql","bety","tiger","faces","anrcfp00",17,"character varying",5,NA,NA,NA,NA
+"215","postgresql","bety","tiger","faces","elsdlea00",18,"character varying",5,NA,NA,NA,NA
+"216","postgresql","bety","tiger","faces","scsdlea00",19,"character varying",5,NA,NA,NA,NA
+"217","postgresql","bety","tiger","faces","unsdlea00",20,"character varying",5,NA,NA,NA,NA
+"218","postgresql","bety","tiger","faces","uace00",21,"character varying",5,NA,NA,NA,NA
+"219","postgresql","bety","tiger","faces","cd108fp",22,"character varying",2,NA,NA,NA,NA
+"220","postgresql","bety","tiger","faces","sldust00",23,"character varying",3,NA,NA,NA,NA
+"221","postgresql","bety","tiger","faces","sldlst00",24,"character varying",3,NA,NA,NA,NA
+"222","postgresql","bety","tiger","faces","vtdst00",25,"character varying",6,NA,NA,NA,NA
+"223","postgresql","bety","tiger","faces","zcta5ce00",26,"character varying",5,NA,NA,NA,NA
+"224","postgresql","bety","tiger","faces","tazce00",27,"character varying",6,NA,NA,NA,NA
+"225","postgresql","bety","tiger","faces","ugace00",28,"character varying",5,NA,NA,NA,NA
+"226","postgresql","bety","tiger","faces","puma5ce00",29,"character varying",5,NA,NA,NA,NA
+"227","postgresql","bety","tiger","faces","statefp",30,"character varying",2,NA,NA,NA,NA
+"228","postgresql","bety","tiger","faces","countyfp",31,"character varying",3,NA,NA,NA,NA
+"229","postgresql","bety","tiger","faces","tractce",32,"character varying",6,NA,NA,NA,NA
+"230","postgresql","bety","tiger","faces","blkgrpce",33,"character varying",1,NA,NA,NA,NA
+"231","postgresql","bety","tiger","faces","blockce",34,"character varying",4,NA,NA,NA,NA
+"232","postgresql","bety","tiger","faces","cousubfp",35,"character varying",5,NA,NA,NA,NA
+"233","postgresql","bety","tiger","faces","submcdfp",36,"character varying",5,NA,NA,NA,NA
+"234","postgresql","bety","tiger","faces","conctyfp",37,"character varying",5,NA,NA,NA,NA
+"235","postgresql","bety","tiger","faces","placefp",38,"character varying",5,NA,NA,NA,NA
+"236","postgresql","bety","tiger","faces","aiannhfp",39,"character varying",5,NA,NA,NA,NA
+"237","postgresql","bety","tiger","faces","aiannhce",40,"character varying",4,NA,NA,NA,NA
+"238","postgresql","bety","tiger","faces","comptyp",41,"character varying",1,NA,NA,NA,NA
+"239","postgresql","bety","tiger","faces","trsubfp",42,"character varying",5,NA,NA,NA,NA
+"240","postgresql","bety","tiger","faces","trsubce",43,"character varying",3,NA,NA,NA,NA
+"241","postgresql","bety","tiger","faces","anrcfp",44,"character varying",5,NA,NA,NA,NA
+"242","postgresql","bety","tiger","faces","ttractce",45,"character varying",6,NA,NA,NA,NA
+"243","postgresql","bety","tiger","faces","tblkgpce",46,"character varying",1,NA,NA,NA,NA
+"244","postgresql","bety","tiger","faces","elsdlea",47,"character varying",5,NA,NA,NA,NA
+"245","postgresql","bety","tiger","faces","scsdlea",48,"character varying",5,NA,NA,NA,NA
+"246","postgresql","bety","tiger","faces","unsdlea",49,"character varying",5,NA,NA,NA,NA
+"247","postgresql","bety","tiger","faces","uace",50,"character varying",5,NA,NA,NA,NA
+"248","postgresql","bety","tiger","faces","cd111fp",51,"character varying",2,NA,NA,NA,NA
+"249","postgresql","bety","tiger","faces","sldust",52,"character varying",3,NA,NA,NA,NA
+"250","postgresql","bety","tiger","faces","sldlst",53,"character varying",3,NA,NA,NA,NA
+"251","postgresql","bety","tiger","faces","vtdst",54,"character varying",6,NA,NA,NA,NA
+"252","postgresql","bety","tiger","faces","zcta5ce",55,"character varying",5,NA,NA,NA,NA
+"253","postgresql","bety","tiger","faces","tazce",56,"character varying",6,NA,NA,NA,NA
+"254","postgresql","bety","tiger","faces","ugace",57,"character varying",5,NA,NA,NA,NA
+"255","postgresql","bety","tiger","faces","puma5ce",58,"character varying",5,NA,NA,NA,NA
+"256","postgresql","bety","tiger","faces","csafp",59,"character varying",3,NA,NA,NA,NA
+"257","postgresql","bety","tiger","faces","cbsafp",60,"character varying",5,NA,NA,NA,NA
+"258","postgresql","bety","tiger","faces","metdivfp",61,"character varying",5,NA,NA,NA,NA
+"259","postgresql","bety","tiger","faces","cnectafp",62,"character varying",3,NA,NA,NA,NA
+"260","postgresql","bety","tiger","faces","nectafp",63,"character varying",5,NA,NA,NA,NA
+"261","postgresql","bety","tiger","faces","nctadvfp",64,"character varying",5,NA,NA,NA,NA
+"262","postgresql","bety","tiger","faces","lwflag",65,"character varying",1,NA,NA,NA,NA
+"263","postgresql","bety","tiger","faces","offset",66,"character varying",1,NA,NA,NA,NA
+"264","postgresql","bety","tiger","faces","atotal",67,"double precision",NA,NA,NA,NA,NA
+"265","postgresql","bety","tiger","faces","intptlat",68,"character varying",11,NA,NA,NA,NA
+"266","postgresql","bety","tiger","faces","intptlon",69,"character varying",12,NA,NA,NA,NA
+"267","postgresql","bety","tiger","faces","the_geom",70,"USER-DEFINED",NA,NA,NA,NA,NA
+"268","postgresql","bety","tiger","faces","gid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"269","postgresql","bety","tiger","featnames","tlid",2,"bigint",NA,NA,NA,NA,NA
+"270","postgresql","bety","tiger","featnames","fullname",3,"character varying",100,NA,NA,NA,NA
+"271","postgresql","bety","tiger","featnames","name",4,"character varying",100,NA,NA,NA,NA
+"272","postgresql","bety","tiger","featnames","predirabrv",5,"character varying",15,NA,NA,NA,NA
+"273","postgresql","bety","tiger","featnames","pretypabrv",6,"character varying",50,NA,NA,NA,NA
+"274","postgresql","bety","tiger","featnames","prequalabr",7,"character varying",15,NA,NA,NA,NA
+"275","postgresql","bety","tiger","featnames","sufdirabrv",8,"character varying",15,NA,NA,NA,NA
+"276","postgresql","bety","tiger","featnames","suftypabrv",9,"character varying",50,NA,NA,NA,NA
+"277","postgresql","bety","tiger","featnames","sufqualabr",10,"character varying",15,NA,NA,NA,NA
+"278","postgresql","bety","tiger","featnames","predir",11,"character varying",2,NA,NA,NA,NA
+"279","postgresql","bety","tiger","featnames","pretyp",12,"character varying",3,NA,NA,NA,NA
+"280","postgresql","bety","tiger","featnames","prequal",13,"character varying",2,NA,NA,NA,NA
+"281","postgresql","bety","tiger","featnames","sufdir",14,"character varying",2,NA,NA,NA,NA
+"282","postgresql","bety","tiger","featnames","suftyp",15,"character varying",3,NA,NA,NA,NA
+"283","postgresql","bety","tiger","featnames","sufqual",16,"character varying",2,NA,NA,NA,NA
+"284","postgresql","bety","tiger","featnames","linearid",17,"character varying",22,NA,NA,NA,NA
+"285","postgresql","bety","tiger","featnames","mtfcc",18,"character varying",5,NA,NA,NA,NA
+"286","postgresql","bety","tiger","featnames","paflag",19,"character varying",1,NA,NA,NA,NA
+"287","postgresql","bety","tiger","featnames","gid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"288","postgresql","bety","tiger","featnames","statefp",20,"character varying",2,NA,NA,NA,NA
+"289","postgresql","bety","tiger","addr","tlid",2,"bigint",NA,NA,NA,NA,NA
+"290","postgresql","bety","tiger","addr","fromhn",3,"character varying",12,NA,NA,NA,NA
+"291","postgresql","bety","tiger","addr","tohn",4,"character varying",12,NA,NA,NA,NA
+"292","postgresql","bety","tiger","addr","side",5,"character varying",1,NA,NA,NA,NA
+"293","postgresql","bety","tiger","addr","zip",6,"character varying",5,NA,NA,NA,NA
+"294","postgresql","bety","tiger","addr","plus4",7,"character varying",4,NA,NA,NA,NA
+"295","postgresql","bety","tiger","addr","fromtyp",8,"character varying",1,NA,NA,NA,NA
+"296","postgresql","bety","tiger","addr","totyp",9,"character varying",1,NA,NA,NA,NA
+"297","postgresql","bety","tiger","addr","fromarmid",10,"integer",NA,NA,NA,NA,NA
+"298","postgresql","bety","tiger","addr","toarmid",11,"integer",NA,NA,NA,NA,NA
+"299","postgresql","bety","tiger","addr","arid",12,"character varying",22,NA,NA,NA,NA
+"300","postgresql","bety","tiger","addr","mtfcc",13,"character varying",5,NA,NA,NA,NA
+"301","postgresql","bety","tiger","addr","gid",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"302","postgresql","bety","tiger","addr","statefp",14,"character varying",2,NA,NA,NA,NA
+"303","postgresql","bety","tiger","zcta5","statefp",2,"character varying",2,"PRIMARY KEY",NA,NA,NA
+"304","postgresql","bety","tiger","zcta5","zcta5ce",3,"character varying",5,"PRIMARY KEY",NA,NA,NA
+"305","postgresql","bety","tiger","zcta5","classfp",4,"character varying",2,NA,NA,NA,NA
+"306","postgresql","bety","tiger","zcta5","mtfcc",5,"character varying",5,NA,NA,NA,NA
+"307","postgresql","bety","tiger","zcta5","funcstat",6,"character varying",1,NA,NA,NA,NA
+"308","postgresql","bety","tiger","zcta5","aland",7,"double precision",NA,NA,NA,NA,NA
+"309","postgresql","bety","tiger","zcta5","awater",8,"double precision",NA,NA,NA,NA,NA
+"310","postgresql","bety","tiger","zcta5","intptlat",9,"character varying",11,NA,NA,NA,NA
+"311","postgresql","bety","tiger","zcta5","intptlon",10,"character varying",12,NA,NA,NA,NA
+"312","postgresql","bety","tiger","zcta5","partflg",11,"character varying",1,NA,NA,NA,NA
+"313","postgresql","bety","tiger","zcta5","the_geom",12,"USER-DEFINED",NA,NA,NA,NA,NA
+"314","postgresql","bety","tiger","zcta5","gid",1,"integer",NA,"UNIQUE",NA,NA,NA
+"315","postgresql","bety","tiger","loader_platform","os",1,"character varying",50,"PRIMARY KEY",NA,NA,NA
+"316","postgresql","bety","tiger","loader_platform","declare_sect",2,"text",NA,NA,NA,NA,NA
+"317","postgresql","bety","tiger","loader_platform","pgbin",3,"text",NA,NA,NA,NA,NA
+"318","postgresql","bety","tiger","loader_platform","wget",4,"text",NA,NA,NA,NA,NA
+"319","postgresql","bety","tiger","loader_platform","unzip_command",5,"text",NA,NA,NA,NA,NA
+"320","postgresql","bety","tiger","loader_platform","psql",6,"text",NA,NA,NA,NA,NA
+"321","postgresql","bety","tiger","loader_platform","path_sep",7,"text",NA,NA,NA,NA,NA
+"322","postgresql","bety","tiger","loader_platform","loader",8,"text",NA,NA,NA,NA,NA
+"323","postgresql","bety","tiger","loader_platform","environ_set_command",9,"text",NA,NA,NA,NA,NA
+"324","postgresql","bety","tiger","loader_platform","county_process_command",10,"text",NA,NA,NA,NA,NA
+"325","postgresql","bety","tiger","loader_variables","tiger_year",1,"character varying",4,"PRIMARY KEY",NA,NA,NA
+"326","postgresql","bety","tiger","loader_variables","website_root",2,"text",NA,NA,NA,NA,NA
+"327","postgresql","bety","tiger","loader_variables","staging_fold",3,"text",NA,NA,NA,NA,NA
+"328","postgresql","bety","tiger","loader_variables","data_schema",4,"text",NA,NA,NA,NA,NA
+"329","postgresql","bety","tiger","loader_variables","staging_schema",5,"text",NA,NA,NA,NA,NA
+"330","postgresql","bety","tiger","loader_lookuptables","lookup_name",2,"text",NA,"PRIMARY KEY",NA,NA,NA
+"331","postgresql","bety","tiger","loader_lookuptables","table_name",3,"text",NA,NA,NA,NA,NA
+"332","postgresql","bety","tiger","loader_lookuptables","post_load_process",9,"text",NA,NA,NA,NA,NA
+"333","postgresql","bety","tiger","loader_lookuptables","pre_load_process",12,"text",NA,NA,NA,NA,NA
+"334","postgresql","bety","tiger","loader_lookuptables","columns_exclude",13,"ARRAY",NA,NA,NA,NA,NA
+"335","postgresql","bety","tiger","loader_lookuptables","website_root_override",14,"text",NA,NA,NA,NA,NA
+"336","postgresql","bety","tiger","loader_lookuptables","process_order",1,"integer",NA,NA,NA,NA,NA
+"337","postgresql","bety","tiger","loader_lookuptables","single_mode",4,"boolean",NA,NA,NA,NA,NA
+"338","postgresql","bety","tiger","loader_lookuptables","load",5,"boolean",NA,NA,NA,NA,NA
+"339","postgresql","bety","tiger","loader_lookuptables","level_county",6,"boolean",NA,NA,NA,NA,NA
+"340","postgresql","bety","tiger","loader_lookuptables","level_state",7,"boolean",NA,NA,NA,NA,NA
+"341","postgresql","bety","tiger","loader_lookuptables","level_nation",8,"boolean",NA,NA,NA,NA,NA
+"342","postgresql","bety","tiger","loader_lookuptables","single_geom_mode",10,"boolean",NA,NA,NA,NA,NA
+"343","postgresql","bety","tiger","loader_lookuptables","insert_mode",11,"character",1,NA,NA,NA,NA
+"344","postgresql","bety","tiger","tract","statefp",2,"character varying",2,NA,NA,NA,NA
+"345","postgresql","bety","tiger","tract","countyfp",3,"character varying",3,NA,NA,NA,NA
+"346","postgresql","bety","tiger","tract","tractce",4,"character varying",6,NA,NA,NA,NA
+"347","postgresql","bety","tiger","tract","tract_id",5,"character varying",11,"PRIMARY KEY",NA,NA,NA
+"348","postgresql","bety","tiger","tract","name",6,"character varying",7,NA,NA,NA,NA
+"349","postgresql","bety","tiger","tract","namelsad",7,"character varying",20,NA,NA,NA,NA
+"350","postgresql","bety","tiger","tract","mtfcc",8,"character varying",5,NA,NA,NA,NA
+"351","postgresql","bety","tiger","tract","funcstat",9,"character varying",1,NA,NA,NA,NA
+"352","postgresql","bety","tiger","tract","aland",10,"double precision",NA,NA,NA,NA,NA
+"353","postgresql","bety","tiger","tract","awater",11,"double precision",NA,NA,NA,NA,NA
+"354","postgresql","bety","tiger","tract","intptlat",12,"character varying",11,NA,NA,NA,NA
+"355","postgresql","bety","tiger","tract","intptlon",13,"character varying",12,NA,NA,NA,NA
+"356","postgresql","bety","tiger","tract","the_geom",14,"USER-DEFINED",NA,NA,NA,NA,NA
+"357","postgresql","bety","tiger","tract","gid",1,"integer",NA,NA,NA,NA,NA
+"358","postgresql","bety","tiger","tabblock","statefp",2,"character varying",2,NA,NA,NA,NA
+"359","postgresql","bety","tiger","tabblock","countyfp",3,"character varying",3,NA,NA,NA,NA
+"360","postgresql","bety","tiger","tabblock","tractce",4,"character varying",6,NA,NA,NA,NA
+"361","postgresql","bety","tiger","tabblock","blockce",5,"character varying",4,NA,NA,NA,NA
+"362","postgresql","bety","tiger","tabblock","tabblock_id",6,"character varying",16,"PRIMARY KEY",NA,NA,NA
+"363","postgresql","bety","tiger","tabblock","name",7,"character varying",20,NA,NA,NA,NA
+"364","postgresql","bety","tiger","tabblock","mtfcc",8,"character varying",5,NA,NA,NA,NA
+"365","postgresql","bety","tiger","tabblock","ur",9,"character varying",1,NA,NA,NA,NA
+"366","postgresql","bety","tiger","tabblock","uace",10,"character varying",5,NA,NA,NA,NA
+"367","postgresql","bety","tiger","tabblock","funcstat",11,"character varying",1,NA,NA,NA,NA
+"368","postgresql","bety","tiger","tabblock","aland",12,"double precision",NA,NA,NA,NA,NA
+"369","postgresql","bety","tiger","tabblock","awater",13,"double precision",NA,NA,NA,NA,NA
+"370","postgresql","bety","tiger","tabblock","intptlat",14,"character varying",11,NA,NA,NA,NA
+"371","postgresql","bety","tiger","tabblock","intptlon",15,"character varying",12,NA,NA,NA,NA
+"372","postgresql","bety","tiger","tabblock","the_geom",16,"USER-DEFINED",NA,NA,NA,NA,NA
+"373","postgresql","bety","tiger","tabblock","gid",1,"integer",NA,NA,NA,NA,NA
+"374","postgresql","bety","tiger","bg","statefp",2,"character varying",2,NA,NA,NA,NA
+"375","postgresql","bety","tiger","bg","countyfp",3,"character varying",3,NA,NA,NA,NA
+"376","postgresql","bety","tiger","bg","tractce",4,"character varying",6,NA,NA,NA,NA
+"377","postgresql","bety","tiger","bg","blkgrpce",5,"character varying",1,NA,NA,NA,NA
+"378","postgresql","bety","tiger","bg","bg_id",6,"character varying",12,"PRIMARY KEY",NA,NA,NA
+"379","postgresql","bety","tiger","bg","namelsad",7,"character varying",13,NA,NA,NA,NA
+"380","postgresql","bety","tiger","bg","mtfcc",8,"character varying",5,NA,NA,NA,NA
+"381","postgresql","bety","tiger","bg","funcstat",9,"character varying",1,NA,NA,NA,NA
+"382","postgresql","bety","tiger","bg","aland",10,"double precision",NA,NA,NA,NA,NA
+"383","postgresql","bety","tiger","bg","awater",11,"double precision",NA,NA,NA,NA,NA
+"384","postgresql","bety","tiger","bg","intptlat",12,"character varying",11,NA,NA,NA,NA
+"385","postgresql","bety","tiger","bg","intptlon",13,"character varying",12,NA,NA,NA,NA
+"386","postgresql","bety","tiger","bg","the_geom",14,"USER-DEFINED",NA,NA,NA,NA,NA
+"387","postgresql","bety","tiger","bg","gid",1,"integer",NA,NA,NA,NA,NA
+"388","postgresql","bety","tiger","pagc_gaz","seq",2,"integer",NA,NA,NA,NA,NA
+"389","postgresql","bety","tiger","pagc_gaz","word",3,"text",NA,NA,NA,NA,NA
+"390","postgresql","bety","tiger","pagc_gaz","stdword",4,"text",NA,NA,NA,NA,NA
+"391","postgresql","bety","tiger","pagc_gaz","token",5,"integer",NA,NA,NA,NA,NA
+"392","postgresql","bety","tiger","pagc_gaz","id",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"393","postgresql","bety","tiger","pagc_gaz","is_custom",6,"boolean",NA,NA,NA,NA,NA
+"394","postgresql","bety","tiger","pagc_lex","seq",2,"integer",NA,NA,NA,NA,NA
+"395","postgresql","bety","tiger","pagc_lex","word",3,"text",NA,NA,NA,NA,NA
+"396","postgresql","bety","tiger","pagc_lex","stdword",4,"text",NA,NA,NA,NA,NA
+"397","postgresql","bety","tiger","pagc_lex","token",5,"integer",NA,NA,NA,NA,NA
+"398","postgresql","bety","tiger","pagc_lex","id",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"399","postgresql","bety","tiger","pagc_lex","is_custom",6,"boolean",NA,NA,NA,NA,NA
+"400","postgresql","bety","tiger","pagc_rules","rule",2,"text",NA,NA,NA,NA,NA
+"401","postgresql","bety","tiger","pagc_rules","id",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"402","postgresql","bety","tiger","pagc_rules","is_custom",3,"boolean",NA,NA,NA,NA,NA
+"403","postgresql","bety","topology","topology","name",2,"character varying",NA,"UNIQUE",NA,NA,NA
+"404","postgresql","bety","topology","topology","srid",3,"integer",NA,NA,NA,NA,NA
+"405","postgresql","bety","topology","topology","precision",4,"double precision",NA,NA,NA,NA,NA
+"406","postgresql","bety","topology","topology","id",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"407","postgresql","bety","topology","topology","hasz",5,"boolean",NA,NA,NA,NA,NA
+"408","postgresql","bety","topology","layer","topology_id",1,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"409","postgresql","bety","topology","layer","topology_id",1,"integer",NA,"FOREIGN KEY","topology","topology","id"
+"410","postgresql","bety","topology","layer","layer_id",2,"integer",NA,"PRIMARY KEY",NA,NA,NA
+"411","postgresql","bety","topology","layer","schema_name",3,"character varying",NA,"UNIQUE",NA,NA,NA
+"412","postgresql","bety","topology","layer","table_name",4,"character varying",NA,"UNIQUE",NA,NA,NA
+"413","postgresql","bety","topology","layer","feature_column",5,"character varying",NA,"UNIQUE",NA,NA,NA
+"414","postgresql","bety","topology","layer","feature_type",6,"integer",NA,NA,NA,NA,NA
+"415","postgresql","bety","topology","layer","child_id",8,"integer",NA,NA,NA,NA,NA
+"416","postgresql","bety","topology","layer","level",7,"integer",NA,NA,NA,NA,NA
+"417","postgresql","bety","public","citations","vol",6,"integer",NA,NA,NA,NA,NA
+"418","postgresql","bety","public","citations","author",2,"character varying",255,NA,NA,NA,NA
+"419","postgresql","bety","public","citations","created_at",10,"timestamp without time zone",NA,NA,NA,NA,NA
+"420","postgresql","bety","public","citations","updated_at",11,"timestamp without time zone",NA,NA,NA,NA,NA
+"421","postgresql","bety","public","citations","user_id",13,"bigint",NA,"FOREIGN KEY","public","users","id"
+"422","postgresql","bety","public","citations","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"423","postgresql","bety","public","citations_sites","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"424","postgresql","bety","public","citations_treatments","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"425","postgresql","bety","public","citations_sites","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"426","postgresql","bety","public","citations_treatments","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"427","postgresql","bety","public","covariates","trait_id",2,"bigint",NA,NA,NA,NA,NA
+"428","postgresql","bety","public","covariates","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"429","postgresql","bety","public","covariates","level",4,"numeric",NA,NA,NA,NA,NA
+"430","postgresql","bety","public","covariates","n",7,"integer",NA,NA,NA,NA,NA
+"431","postgresql","bety","public","covariates","stat",9,"numeric",NA,NA,NA,NA,NA
+"432","postgresql","bety","public","covariates","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"433","postgresql","bety","public","covariates","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"434","postgresql","bety","public","cultivars","previous_id",8,"character varying",255,NA,NA,NA,NA
+"435","postgresql","bety","public","cultivars","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"436","postgresql","bety","public","current_posteriors","pft_id",2,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"437","postgresql","bety","public","current_posteriors","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"438","postgresql","bety","public","current_posteriors","posteriors_samples_id",4,"bigint",NA,"FOREIGN KEY","public","posterior_samples","id"
+"439","postgresql","bety","public","current_posteriors","project_id",5,"bigint",NA,"FOREIGN KEY","public","projects","id"
+"440","postgresql","bety","public","current_posteriors","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"441","postgresql","bety","public","cultivars","name",3,"character varying",255,"UNIQUE",NA,NA,NA
+"442","postgresql","bety","public","cultivars","created_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"443","postgresql","bety","public","cultivars","ecotype",4,"character varying",255,NA,NA,NA,NA
+"444","postgresql","bety","public","current_posteriors","created_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"445","postgresql","bety","public","cultivars","updated_at",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"446","postgresql","bety","public","dbfiles","md5",4,"character varying",255,NA,NA,NA,NA
+"447","postgresql","bety","public","dbfiles","created_user_id",5,"bigint",NA,"FOREIGN KEY","public","users","id"
+"448","postgresql","bety","public","dbfiles","updated_user_id",6,"bigint",NA,"FOREIGN KEY","public","users","id"
+"449","postgresql","bety","public","dbfiles","container_type",10,"character varying",255,NA,NA,NA,NA
+"450","postgresql","bety","public","dbfiles","container_id",11,"bigint",NA,NA,NA,NA,NA
+"451","postgresql","bety","public","dbfiles","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"452","postgresql","bety","public","dbfiles","file_name",2,"character varying",255,"UNIQUE",NA,NA,NA
+"453","postgresql","bety","public","dbfiles","created_at",8,"timestamp without time zone",NA,NA,NA,NA,NA
+"454","postgresql","bety","public","dbfiles","updated_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"455","postgresql","bety","public","ensembles","runtype",5,"character varying",255,NA,NA,NA,NA
+"456","postgresql","bety","public","ensembles","workflow_id",6,"bigint",NA,"FOREIGN KEY","public","workflows","id"
+"457","postgresql","bety","public","ensembles","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"458","postgresql","bety","public","ensembles","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"459","postgresql","bety","public","ensembles","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"460","postgresql","bety","public","entities","parent_id",2,"bigint",NA,"FOREIGN KEY","public","entities","id"
+"461","postgresql","bety","public","entities","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"462","postgresql","bety","public","formats","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"463","postgresql","bety","public","entities","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"464","postgresql","bety","public","formats","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"465","postgresql","bety","public","entities","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"466","postgresql","bety","public","formats","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"467","postgresql","bety","public","formats_variables","column_number",7,"integer",NA,NA,NA,NA,NA
+"468","postgresql","bety","public","formats_variables","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"469","postgresql","bety","public","formats_variables","created_at",8,"timestamp without time zone",NA,NA,NA,NA,NA
+"470","postgresql","bety","public","formats_variables","updated_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"471","postgresql","bety","public","inputs","site_id",2,"bigint",NA,"FOREIGN KEY","public","sites","id"
+"472","postgresql","bety","public","inputs","start_date",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"473","postgresql","bety","public","inputs","end_date",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"474","postgresql","bety","public","inputs","parent_id",9,"bigint",NA,"FOREIGN KEY","public","inputs","id"
+"475","postgresql","bety","public","inputs","user_id",10,"bigint",NA,"FOREIGN KEY","public","users","id"
+"476","postgresql","bety","public","inputs","raw",12,"boolean",NA,NA,NA,NA,NA
+"477","postgresql","bety","public","inputs","format_id",13,"bigint",NA,"FOREIGN KEY","public","formats","id"
+"478","postgresql","bety","public","inputs","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"479","postgresql","bety","public","inputs","created_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"480","postgresql","bety","public","inputs","notes",3,"text",NA,NA,NA,NA,NA
+"481","postgresql","bety","public","inputs","updated_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"482","postgresql","bety","public","likelihoods","loglikelihood",5,"numeric",NA,NA,NA,NA,NA
+"483","postgresql","bety","public","likelihoods","n_eff",6,"numeric",NA,NA,NA,NA,NA
+"484","postgresql","bety","public","likelihoods","weight",7,"numeric",NA,NA,NA,NA,NA
+"485","postgresql","bety","public","likelihoods","residual",8,"numeric",NA,NA,NA,NA,NA
+"486","postgresql","bety","public","likelihoods","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"487","postgresql","bety","public","inputs_runs","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"488","postgresql","bety","public","likelihoods","created_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"489","postgresql","bety","public","inputs_runs","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"490","postgresql","bety","public","machines","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"491","postgresql","bety","public","managements","citation_id",2,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"492","postgresql","bety","public","managements","date",3,"date",NA,NA,NA,NA,NA
+"493","postgresql","bety","public","managements","dateloc",4,"numeric",NA,NA,NA,NA,NA
+"494","postgresql","bety","public","managements","level",6,"numeric",NA,NA,NA,NA,NA
+"495","postgresql","bety","public","managements","units",7,"character varying",255,NA,NA,NA,NA
+"496","postgresql","bety","public","managements","user_id",11,"bigint",NA,"FOREIGN KEY","public","users","id"
+"497","postgresql","bety","public","managements","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"498","postgresql","bety","public","managements_treatments","treatment_id",1,"bigint",NA,"FOREIGN KEY","public","treatments","id"
+"499","postgresql","bety","public","managements","mgmttype",5,"character varying",255,NA,NA,NA,NA
+"500","postgresql","bety","public","managements","created_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"501","postgresql","bety","public","managements_treatments","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"502","postgresql","bety","public","managements","updated_at",10,"timestamp without time zone",NA,NA,NA,NA,NA
+"503","postgresql","bety","public","methods","citation_id",4,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"504","postgresql","bety","public","methods","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"505","postgresql","bety","public","mimetypes","type_string",2,"character varying",255,"UNIQUE",NA,NA,NA
+"506","postgresql","bety","public","methods","name",2,"character varying",255,NA,NA,NA,NA
+"507","postgresql","bety","public","methods","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"508","postgresql","bety","public","methods","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"509","postgresql","bety","public","mimetypes","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"510","postgresql","bety","public","models","parent_id",4,"bigint",NA,"FOREIGN KEY","public","models","id"
+"511","postgresql","bety","public","models","modeltype_id",7,"bigint",NA,"FOREIGN KEY","public","modeltypes","id"
+"512","postgresql","bety","public","models","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"513","postgresql","bety","public","modeltypes","name",2,"character varying",255,NA,NA,NA,NA
+"514","postgresql","bety","public","modeltypes","user_id",3,"bigint",NA,"FOREIGN KEY","public","users","id"
+"515","postgresql","bety","public","modeltypes_formats","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"516","postgresql","bety","public","models","model_name",2,"character varying",255,NA,NA,NA,NA
+"517","postgresql","bety","public","models","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"518","postgresql","bety","public","modeltypes","created_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"519","postgresql","bety","public","modeltypes_formats","modeltype_id",2,"bigint",NA,"FOREIGN KEY","public","modeltypes","id"
+"520","postgresql","bety","public","modeltypes_formats","tag",3,"character varying",255,NA,NA,NA,NA
+"521","postgresql","bety","public","modeltypes_formats","format_id",4,"bigint",NA,"FOREIGN KEY","public","formats","id"
+"522","postgresql","bety","public","modeltypes_formats","user_id",7,"bigint",NA,"FOREIGN KEY","public","users","id"
+"523","postgresql","bety","public","modeltypes_formats","created_at",8,"timestamp without time zone",NA,NA,NA,NA,NA
+"524","postgresql","bety","public","modeltypes_formats","updated_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"525","postgresql","bety","public","modeltypes_formats","required",5,"boolean",NA,NA,NA,NA,NA
+"526","postgresql","bety","public","modeltypes_formats","input",6,"boolean",NA,NA,NA,NA,NA
+"527","postgresql","bety","public","pfts","parent_id",6,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"528","postgresql","bety","public","pfts","modeltype_id",8,"bigint",NA,"UNIQUE",NA,NA,NA
+"529","postgresql","bety","public","pfts","modeltype_id",8,"bigint",NA,"FOREIGN KEY","public","modeltypes","id"
+"530","postgresql","bety","public","pfts","modeltype_id",8,"bigint",NA,"UNIQUE",NA,NA,NA
+"531","postgresql","bety","public","pfts","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"532","postgresql","bety","public","pfts","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"533","postgresql","bety","public","pfts_species","pft_id",1,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"534","postgresql","bety","public","pfts_species","pft_id",1,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"535","postgresql","bety","public","pfts_species","specie_id",2,"bigint",NA,"FOREIGN KEY","public","species","id"
+"536","postgresql","bety","public","pfts_priors","pft_id",1,"bigint",NA,NA,NA,NA,NA
+"537","postgresql","bety","public","pfts_priors","prior_id",2,"bigint",NA,NA,NA,NA,NA
+"538","postgresql","bety","public","pfts","definition",2,"text",NA,NA,NA,NA,NA
+"539","postgresql","bety","public","pfts","pft_type",7,"character varying",255,NA,NA,NA,NA
+"540","postgresql","bety","public","pfts_priors","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"541","postgresql","bety","public","posterior_samples","posterior_id",2,"bigint",NA,"FOREIGN KEY","public","posteriors","id"
+"542","postgresql","bety","public","posterior_samples","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"543","postgresql","bety","public","posterior_samples","pft_id",4,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"544","postgresql","bety","public","posterior_samples","parent_id",5,"bigint",NA,"FOREIGN KEY","public","posterior_samples","id"
+"545","postgresql","bety","public","posterior_samples","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"546","postgresql","bety","public","posterior_samples","created_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"547","postgresql","bety","public","posteriors","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"548","postgresql","bety","public","posteriors","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"549","postgresql","bety","public","posteriors_ensembles","posterior_id",1,"bigint",NA,"FOREIGN KEY","public","posteriors","id"
+"550","postgresql","bety","public","posteriors_ensembles","ensemble_id",2,"bigint",NA,"FOREIGN KEY","public","ensembles","id"
+"551","postgresql","bety","public","priors","citation_id",2,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"552","postgresql","bety","public","priors","paramb",7,"numeric",NA,NA,NA,NA,NA
+"553","postgresql","bety","public","priors","paramc",8,"numeric",NA,NA,NA,NA,NA
+"554","postgresql","bety","public","priors","n",9,"integer",NA,NA,NA,NA,NA
+"555","postgresql","bety","public","priors","notes",10,"text",NA,NA,NA,NA,NA
+"556","postgresql","bety","public","priors","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"557","postgresql","bety","public","priors","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"558","postgresql","bety","public","posteriors_ensembles","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"559","postgresql","bety","public","priors","created_at",11,"timestamp without time zone",NA,NA,NA,NA,NA
+"560","postgresql","bety","public","posteriors_ensembles","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"561","postgresql","bety","public","priors","updated_at",12,"timestamp without time zone",NA,NA,NA,NA,NA
+"562","postgresql","bety","public","projects","machine_id",4,"bigint",NA,"FOREIGN KEY","public","machines","id"
+"563","postgresql","bety","public","projects","name",2,"character varying",255,NA,NA,NA,NA
+"564","postgresql","bety","public","projects","created_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"565","postgresql","bety","public","projects","updated_at",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"566","postgresql","bety","public","runs","started_at",12,"timestamp without time zone",NA,NA,NA,NA,NA
+"567","postgresql","bety","public","runs","finished_at",13,"timestamp without time zone",NA,NA,NA,NA,NA
+"568","postgresql","bety","public","runs","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"569","postgresql","bety","public","schema_migrations","version",1,"character varying",255,NA,NA,NA,NA
+"570","postgresql","bety","public","runs","model_id",2,"bigint",NA,"FOREIGN KEY","public","models","id"
+"571","postgresql","bety","public","runs","model_id",2,"bigint",NA,"UNIQUE",NA,NA,NA
+"572","postgresql","bety","public","runs","created_at",10,"timestamp without time zone",NA,NA,NA,NA,NA
+"573","postgresql","bety","public","runs","outdir",6,"character varying",255,NA,NA,NA,NA
+"574","postgresql","bety","public","runs","updated_at",11,"timestamp without time zone",NA,NA,NA,NA,NA
+"575","postgresql","bety","public","runs","outprefix",7,"character varying",255,NA,NA,NA,NA
+"576","postgresql","bety","public","runs","setting",8,"character varying",255,NA,NA,NA,NA
+"577","postgresql","bety","public","sessions","session_id",2,"character varying",255,NA,NA,NA,NA
+"578","postgresql","bety","public","sessions","data",3,"text",NA,NA,NA,NA,NA
+"579","postgresql","bety","public","sessions","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"580","postgresql","bety","public","sites","mat",5,"numeric",NA,NA,NA,NA,NA
+"581","postgresql","bety","public","sites","map",6,"integer",NA,NA,NA,NA,NA
+"582","postgresql","bety","public","sites","som",8,"numeric",NA,NA,NA,NA,NA
+"583","postgresql","bety","public","sites","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"584","postgresql","bety","public","sessions","created_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"585","postgresql","bety","public","sessions","updated_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"586","postgresql","bety","public","sites","greenhouse",14,"boolean",NA,NA,NA,NA,NA
+"587","postgresql","bety","public","sites","user_id",15,"bigint",NA,"FOREIGN KEY","public","users","id"
+"588","postgresql","bety","public","sites","local_time",16,"integer",NA,NA,NA,NA,NA
+"589","postgresql","bety","public","sites","sand_pct",17,"numeric",NA,NA,NA,NA,NA
+"590","postgresql","bety","public","sites","clay_pct",18,"numeric",NA,NA,NA,NA,NA
+"591","postgresql","bety","public","sites","geometry",19,"USER-DEFINED",NA,NA,NA,NA,NA
+"592","postgresql","bety","public","species","spcd",2,"integer",NA,NA,NA,NA,NA
+"593","postgresql","bety","public","species","AcceptedSymbol",10,"character varying",255,NA,NA,NA,NA
+"594","postgresql","bety","public","species","SynonymSymbol",11,"character varying",255,NA,NA,NA,NA
+"595","postgresql","bety","public","species","Symbol",12,"character varying",255,NA,NA,NA,NA
+"596","postgresql","bety","public","sites","created_at",11,"timestamp without time zone",NA,NA,NA,NA,NA
+"597","postgresql","bety","public","species","created_at",8,"timestamp without time zone",NA,NA,NA,NA,NA
+"598","postgresql","bety","public","sites","updated_at",12,"timestamp without time zone",NA,NA,NA,NA,NA
+"599","postgresql","bety","public","species","updated_at",9,"timestamp without time zone",NA,NA,NA,NA,NA
+"600","postgresql","bety","public","species","PLANTS_Floristic_Area",13,"text",NA,NA,NA,NA,NA
+"601","postgresql","bety","public","species","State",14,"text",NA,NA,NA,NA,NA
+"602","postgresql","bety","public","species","Category",15,"character varying",255,NA,NA,NA,NA
+"603","postgresql","bety","public","species","Family",16,"character varying",255,NA,NA,NA,NA
+"604","postgresql","bety","public","species","FamilySymbol",17,"character varying",255,NA,NA,NA,NA
+"605","postgresql","bety","public","species","FamilyCommonName",18,"character varying",255,NA,NA,NA,NA
+"606","postgresql","bety","public","species","xOrder",19,"character varying",255,NA,NA,NA,NA
+"607","postgresql","bety","public","species","SubClass",20,"character varying",255,NA,NA,NA,NA
+"608","postgresql","bety","public","species","Class",21,"character varying",255,NA,NA,NA,NA
+"609","postgresql","bety","public","species","SubDivision",22,"character varying",255,NA,NA,NA,NA
+"610","postgresql","bety","public","species","Division",23,"character varying",255,NA,NA,NA,NA
+"611","postgresql","bety","public","species","SuperDivision",24,"character varying",255,NA,NA,NA,NA
+"612","postgresql","bety","public","species","SubKingdom",25,"character varying",255,NA,NA,NA,NA
+"613","postgresql","bety","public","species","Kingdom",26,"character varying",255,NA,NA,NA,NA
+"614","postgresql","bety","public","species","ITIS_TSN",27,"integer",NA,NA,NA,NA,NA
+"615","postgresql","bety","public","species","Duration",28,"character varying",255,NA,NA,NA,NA
+"616","postgresql","bety","public","species","GrowthHabit",29,"character varying",255,NA,NA,NA,NA
+"617","postgresql","bety","public","species","NativeStatus",30,"character varying",255,NA,NA,NA,NA
+"618","postgresql","bety","public","species","NationalWetlandIndicatorStatus",31,"character varying",255,NA,NA,NA,NA
+"619","postgresql","bety","public","species","RegionalWetlandIndicatorStatus",32,"character varying",255,NA,NA,NA,NA
+"620","postgresql","bety","public","species","ActiveGrowthPeriod",33,"character varying",255,NA,NA,NA,NA
+"621","postgresql","bety","public","species","AfterHarvestRegrowthRate",34,"character varying",255,NA,NA,NA,NA
+"622","postgresql","bety","public","species","Bloat",35,"character varying",255,NA,NA,NA,NA
+"623","postgresql","bety","public","species","C2N_Ratio",36,"character varying",255,NA,NA,NA,NA
+"624","postgresql","bety","public","species","CoppicePotential",37,"character varying",255,NA,NA,NA,NA
+"625","postgresql","bety","public","species","FallConspicuous",38,"character varying",255,NA,NA,NA,NA
+"626","postgresql","bety","public","species","FireResistance",39,"character varying",255,NA,NA,NA,NA
+"627","postgresql","bety","public","species","FoliageTexture",40,"character varying",255,NA,NA,NA,NA
+"628","postgresql","bety","public","species","GrowthForm",41,"character varying",255,NA,NA,NA,NA
+"629","postgresql","bety","public","species","GrowthRate",42,"character varying",255,NA,NA,NA,NA
+"630","postgresql","bety","public","species","MaxHeight20Yrs",43,"integer",NA,NA,NA,NA,NA
+"631","postgresql","bety","public","species","MatureHeight",44,"integer",NA,NA,NA,NA,NA
+"632","postgresql","bety","public","species","KnownAllelopath",45,"character varying",255,NA,NA,NA,NA
+"633","postgresql","bety","public","species","LeafRetention",46,"character varying",255,NA,NA,NA,NA
+"634","postgresql","bety","public","species","Lifespan",47,"character varying",255,NA,NA,NA,NA
+"635","postgresql","bety","public","species","LowGrowingGrass",48,"character varying",255,NA,NA,NA,NA
+"636","postgresql","bety","public","species","NitrogenFixation",49,"character varying",255,NA,NA,NA,NA
+"637","postgresql","bety","public","species","ResproutAbility",50,"character varying",255,NA,NA,NA,NA
+"638","postgresql","bety","public","species","AdaptedCoarseSoils",51,"character varying",255,NA,NA,NA,NA
+"639","postgresql","bety","public","species","AdaptedMediumSoils",52,"character varying",255,NA,NA,NA,NA
+"640","postgresql","bety","public","species","AdaptedFineSoils",53,"character varying",255,NA,NA,NA,NA
+"641","postgresql","bety","public","species","AnaerobicTolerance",54,"character varying",255,NA,NA,NA,NA
+"642","postgresql","bety","public","species","CaCO3Tolerance",55,"character varying",255,NA,NA,NA,NA
+"643","postgresql","bety","public","species","ColdStratification",56,"character varying",255,NA,NA,NA,NA
+"644","postgresql","bety","public","species","DroughtTolerance",57,"character varying",255,NA,NA,NA,NA
+"645","postgresql","bety","public","species","FertilityRequirement",58,"character varying",255,NA,NA,NA,NA
+"646","postgresql","bety","public","species","FireTolerance",59,"character varying",255,NA,NA,NA,NA
+"647","postgresql","bety","public","species","MinFrostFreeDays",60,"integer",NA,NA,NA,NA,NA
+"648","postgresql","bety","public","species","HedgeTolerance",61,"character varying",255,NA,NA,NA,NA
+"649","postgresql","bety","public","species","MoistureUse",62,"character varying",255,NA,NA,NA,NA
+"650","postgresql","bety","public","species","pH_Minimum",63,"numeric",NA,NA,NA,NA,NA
+"651","postgresql","bety","public","species","pH_Maximum",64,"numeric",NA,NA,NA,NA,NA
+"652","postgresql","bety","public","species","Min_PlantingDensity",65,"integer",NA,NA,NA,NA,NA
+"653","postgresql","bety","public","species","Max_PlantingDensity",66,"integer",NA,NA,NA,NA,NA
+"654","postgresql","bety","public","species","Precipitation_Minimum",67,"integer",NA,NA,NA,NA,NA
+"655","postgresql","bety","public","species","Precipitation_Maximum",68,"integer",NA,NA,NA,NA,NA
+"656","postgresql","bety","public","species","RootDepthMinimum",69,"integer",NA,NA,NA,NA,NA
+"657","postgresql","bety","public","species","SalinityTolerance",70,"character varying",255,NA,NA,NA,NA
+"658","postgresql","bety","public","species","ShadeTolerance",71,"character varying",255,NA,NA,NA,NA
+"659","postgresql","bety","public","species","TemperatureMinimum",72,"integer",NA,NA,NA,NA,NA
+"660","postgresql","bety","public","species","BloomPeriod",73,"character varying",255,NA,NA,NA,NA
+"661","postgresql","bety","public","species","CommercialAvailability",74,"character varying",255,NA,NA,NA,NA
+"662","postgresql","bety","public","species","FruitSeedPeriodBegin",75,"character varying",255,NA,NA,NA,NA
+"663","postgresql","bety","public","species","FruitSeedPeriodEnd",76,"character varying",255,NA,NA,NA,NA
+"664","postgresql","bety","public","species","Propogated_by_BareRoot",77,"character varying",255,NA,NA,NA,NA
+"665","postgresql","bety","public","species","Propogated_by_Bulbs",78,"character varying",255,NA,NA,NA,NA
+"666","postgresql","bety","public","species","Propogated_by_Container",79,"character varying",255,NA,NA,NA,NA
+"667","postgresql","bety","public","species","Propogated_by_Corms",80,"character varying",255,NA,NA,NA,NA
+"668","postgresql","bety","public","species","Propogated_by_Cuttings",81,"character varying",255,NA,NA,NA,NA
+"669","postgresql","bety","public","species","Propogated_by_Seed",82,"character varying",255,NA,NA,NA,NA
+"670","postgresql","bety","public","species","Propogated_by_Sod",83,"character varying",255,NA,NA,NA,NA
+"671","postgresql","bety","public","species","Propogated_by_Sprigs",84,"character varying",255,NA,NA,NA,NA
+"672","postgresql","bety","public","species","Propogated_by_Tubers",85,"character varying",255,NA,NA,NA,NA
+"673","postgresql","bety","public","species","Seeds_per_Pound",86,"integer",NA,NA,NA,NA,NA
+"674","postgresql","bety","public","species","SeedSpreadRate",87,"character varying",255,NA,NA,NA,NA
+"675","postgresql","bety","public","species","SeedlingVigor",88,"character varying",255,NA,NA,NA,NA
+"676","postgresql","bety","public","species","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"677","postgresql","bety","public","trait_covariate_associations","trait_variable_id",1,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"678","postgresql","bety","public","trait_covariate_associations","covariate_variable_id",2,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"679","postgresql","bety","public","traits","site_id",2,"bigint",NA,NA,NA,NA,NA
+"680","postgresql","bety","public","traits","specie_id",3,"bigint",NA,NA,NA,NA,NA
+"681","postgresql","bety","public","traits","citation_id",4,"bigint",NA,NA,NA,NA,NA
+"682","postgresql","bety","public","traits","cultivar_id",5,"bigint",NA,NA,NA,NA,NA
+"683","postgresql","bety","public","traits","treatment_id",6,"bigint",NA,NA,NA,NA,NA
+"684","postgresql","bety","public","traits","date",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"685","postgresql","bety","public","traits","dateloc",8,"numeric",NA,NA,NA,NA,NA
+"686","postgresql","bety","public","traits","time",9,"time without time zone",NA,NA,NA,NA,NA
+"687","postgresql","bety","public","traits","timeloc",10,"numeric",NA,NA,NA,NA,NA
+"688","postgresql","bety","public","traits","mean",11,"numeric",NA,NA,NA,NA,NA
+"689","postgresql","bety","public","traits","n",12,"integer",NA,NA,NA,NA,NA
+"690","postgresql","bety","public","traits","stat",14,"numeric",NA,NA,NA,NA,NA
+"691","postgresql","bety","public","traits","variable_id",18,"bigint",NA,NA,NA,NA,NA
+"692","postgresql","bety","public","traits","user_id",19,"bigint",NA,NA,NA,NA,NA
+"693","postgresql","bety","public","traits","access_level",21,"integer",NA,NA,NA,NA,NA
+"694","postgresql","bety","public","traits","entity_id",22,"bigint",NA,NA,NA,NA,NA
+"695","postgresql","bety","public","traits","method_id",23,"bigint",NA,NA,NA,NA,NA
+"696","postgresql","bety","public","traits","date_year",24,"integer",NA,NA,NA,NA,NA
+"697","postgresql","bety","public","traits","date_month",25,"integer",NA,NA,NA,NA,NA
+"698","postgresql","bety","public","traits","date_day",26,"integer",NA,NA,NA,NA,NA
+"699","postgresql","bety","public","traits","time_hour",27,"integer",NA,NA,NA,NA,NA
+"700","postgresql","bety","public","traits","time_minute",28,"integer",NA,NA,NA,NA,NA
+"701","postgresql","bety","public","traits","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"702","postgresql","bety","public","traits","checked",20,"integer",NA,NA,NA,NA,NA
+"703","postgresql","bety","public","traits","created_at",16,"timestamp without time zone",NA,NA,NA,NA,NA
+"704","postgresql","bety","public","traits","statname",13,"text",NA,NA,NA,NA,NA
+"705","postgresql","bety","public","traits","updated_at",17,"timestamp without time zone",NA,NA,NA,NA,NA
+"706","postgresql","bety","public","treatments","control",6,"boolean",NA,NA,NA,NA,NA
+"707","postgresql","bety","public","treatments","user_id",7,"bigint",NA,NA,NA,NA,NA
+"708","postgresql","bety","public","treatments","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"709","postgresql","bety","public","treatments","name",2,"character varying",255,NA,NA,NA,NA
+"710","postgresql","bety","public","treatments","created_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"711","postgresql","bety","public","treatments","updated_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"712","postgresql","bety","public","users","area",7,"character varying",255,NA,NA,NA,NA
+"713","postgresql","bety","public","users","salt",9,"character varying",40,NA,NA,NA,NA
+"714","postgresql","bety","public","users","remember_token",12,"character varying",40,NA,NA,NA,NA
+"715","postgresql","bety","public","users","remember_token_expires_at",13,"timestamp without time zone",NA,NA,NA,NA,NA
+"716","postgresql","bety","public","users","apikey",16,"character varying",255,NA,NA,NA,NA
+"717","postgresql","bety","public","users","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"718","postgresql","bety","public","users","created_at",10,"timestamp without time zone",NA,NA,NA,NA,NA
+"719","postgresql","bety","public","users","login",2,"character varying",40,NA,NA,NA,NA
+"720","postgresql","bety","public","users","updated_at",11,"timestamp without time zone",NA,NA,NA,NA,NA
+"721","postgresql","bety","public","variables","standard_name",10,"character varying",255,NA,NA,NA,NA
+"722","postgresql","bety","public","variables","standard_units",11,"character varying",255,NA,NA,NA,NA
+"723","postgresql","bety","public","variables","label",12,"character varying",255,NA,NA,NA,NA
+"724","postgresql","bety","public","variables","type",13,"character varying",255,NA,NA,NA,NA
+"725","postgresql","bety","public","variables","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"726","postgresql","bety","public","variables","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"727","postgresql","bety","public","variables","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"728","postgresql","bety","public","yields","citation_id",2,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"729","postgresql","bety","public","yields","site_id",3,"bigint",NA,NA,NA,NA,NA
+"730","postgresql","bety","public","yields","specie_id",4,"bigint",NA,"FOREIGN KEY","public","species","id"
+"731","postgresql","bety","public","yields","treatment_id",5,"bigint",NA,"FOREIGN KEY","public","treatments","id"
+"732","postgresql","bety","public","yields","cultivar_id",6,"bigint",NA,"FOREIGN KEY","public","cultivars","id"
+"733","postgresql","bety","public","yields","date",7,"date",NA,NA,NA,NA,NA
+"734","postgresql","bety","public","yields","dateloc",8,"numeric",NA,NA,NA,NA,NA
+"735","postgresql","bety","public","yields","stat",10,"numeric",NA,NA,NA,NA,NA
+"736","postgresql","bety","public","yields","n",12,"integer",NA,NA,NA,NA,NA
+"737","postgresql","bety","public","yields","user_id",16,"bigint",NA,"FOREIGN KEY","public","users","id"
+"738","postgresql","bety","public","yields","method_id",19,"bigint",NA,"FOREIGN KEY","public","methods","id"
+"739","postgresql","bety","public","yields","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"740","postgresql","bety","public","yields","created_at",14,"timestamp without time zone",NA,NA,NA,NA,NA
+"741","postgresql","bety","public","yields","mean",11,"numeric",NA,NA,NA,NA,NA
+"742","postgresql","bety","public","yields","updated_at",15,"timestamp without time zone",NA,NA,NA,NA,NA
+"743","postgresql","bety","public","workflows","started_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"744","postgresql","bety","public","workflows","finished_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"745","postgresql","bety","public","workflows","site_id",7,"bigint",NA,"FOREIGN KEY","public","sites","id"
+"746","postgresql","bety","public","workflows","model_id",8,"bigint",NA,"FOREIGN KEY","public","models","id"
+"747","postgresql","bety","public","workflows","start_date",12,"timestamp without time zone",NA,NA,NA,NA,NA
+"748","postgresql","bety","public","workflows","end_date",13,"timestamp without time zone",NA,NA,NA,NA,NA
+"749","postgresql","bety","public","workflows","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"750","postgresql","bety","public","workflows","created_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"751","postgresql","bety","public","modeltypes","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"752","postgresql","bety","public","projects","id",1,"bigint",NA,"PRIMARY KEY",NA,NA,NA
+"753","postgresql","bety","public","workflows","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"754","postgresql","bety","public","cultivars_pfts","pft_id",1,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"755","postgresql","bety","public","cultivars_pfts","pft_id",1,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"756","postgresql","bety","public","cultivars_pfts","cultivar_id",2,"bigint",NA,"FOREIGN KEY","public","cultivars","id"
+"757","postgresql","bety","public","pfts","name",5,"character varying",255,"UNIQUE",NA,NA,NA
+"758","postgresql","bety","public","pfts","name",5,"character varying",255,"UNIQUE",NA,NA,NA
+"759","postgresql","bety","public","citations_sites","id",5,"bigint",NA,NA,NA,NA,NA
+"760","postgresql","bety","public","citations_treatments","id",5,"bigint",NA,NA,NA,NA,NA
+"761","postgresql","bety","public","inputs_runs","id",5,"bigint",NA,NA,NA,NA,NA
+"762","postgresql","bety","public","managements_treatments","id",5,"bigint",NA,NA,NA,NA,NA
+"763","postgresql","bety","public","pfts_priors","id",5,"bigint",NA,NA,NA,NA,NA
+"764","postgresql","bety","public","pfts_species","id",5,"bigint",NA,NA,NA,NA,NA
+"765","postgresql","bety","public","posteriors_ensembles","id",5,"bigint",NA,NA,NA,NA,NA
+"766","postgresql","bety","public","cultivars","specie_id",2,"bigint",NA,"FOREIGN KEY","public","species","id"
+"767","postgresql","bety","public","cultivars","specie_id",2,"bigint",NA,"UNIQUE",NA,NA,NA
+"768","postgresql","bety","public","dbfiles","file_path",3,"character varying",255,"UNIQUE",NA,NA,NA
+"769","postgresql","bety","public","dbfiles","machine_id",7,"bigint",NA,"FOREIGN KEY","public","machines","id"
+"770","postgresql","bety","public","dbfiles","machine_id",7,"bigint",NA,"UNIQUE",NA,NA,NA
+"771","postgresql","bety","public","inputs_runs","input_id",1,"bigint",NA,"FOREIGN KEY","public","inputs","id"
+"772","postgresql","bety","public","inputs_runs","input_id",1,"bigint",NA,"UNIQUE",NA,NA,NA
+"773","postgresql","bety","public","inputs_runs","run_id",2,"bigint",NA,"FOREIGN KEY","public","runs","id"
+"774","postgresql","bety","public","inputs_runs","run_id",2,"bigint",NA,"UNIQUE",NA,NA,NA
+"775","postgresql","bety","public","likelihoods","run_id",2,"bigint",NA,"FOREIGN KEY","public","runs","id"
+"776","postgresql","bety","public","likelihoods","run_id",2,"bigint",NA,"UNIQUE",NA,NA,NA
+"777","postgresql","bety","public","likelihoods","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"778","postgresql","bety","public","likelihoods","variable_id",3,"bigint",NA,"UNIQUE",NA,NA,NA
+"779","postgresql","bety","public","likelihoods","input_id",4,"bigint",NA,"FOREIGN KEY","public","inputs","id"
+"780","postgresql","bety","public","likelihoods","input_id",4,"bigint",NA,"UNIQUE",NA,NA,NA
+"781","postgresql","bety","public","machines","hostname",2,"character varying",255,"UNIQUE",NA,NA,NA
+"782","postgresql","bety","public","managements_treatments","management_id",2,"bigint",NA,"FOREIGN KEY","public","managements","id"
+"783","postgresql","bety","public","posteriors","pft_id",2,"bigint",NA,"FOREIGN KEY","public","pfts","id"
+"784","postgresql","bety","public","runs","site_id",3,"bigint",NA,"FOREIGN KEY","public","sites","id"
+"785","postgresql","bety","public","runs","site_id",3,"bigint",NA,"UNIQUE",NA,NA,NA
+"786","postgresql","bety","public","runs","start_time",4,"timestamp without time zone",NA,"UNIQUE",NA,NA,NA
+"787","postgresql","bety","public","runs","finish_time",5,"timestamp without time zone",NA,"UNIQUE",NA,NA,NA
+"788","postgresql","bety","public","runs","parameter_list",9,"text",NA,"UNIQUE",NA,NA,NA
+"789","postgresql","bety","public","runs","ensemble_id",14,"bigint",NA,"FOREIGN KEY","public","ensembles","id"
+"790","postgresql","bety","public","runs","ensemble_id",14,"bigint",NA,"UNIQUE",NA,NA,NA
+"791","postgresql","bety","public","citations_sites","citation_id",1,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"792","postgresql","bety","public","citations_sites","site_id",2,"bigint",NA,"FOREIGN KEY","public","sites","id"
+"793","postgresql","bety","public","citations_treatments","citation_id",1,"bigint",NA,"FOREIGN KEY","public","citations","id"
+"794","postgresql","bety","public","citations_treatments","treatment_id",2,"bigint",NA,"FOREIGN KEY","public","treatments","id"
+"795","postgresql","bety","public","citations","year",3,"integer",NA,NA,NA,NA,NA
+"796","postgresql","bety","public","citations","title",4,"character varying",255,NA,NA,NA,NA
+"797","postgresql","bety","public","citations","journal",5,"character varying",255,NA,NA,NA,NA
+"798","postgresql","bety","public","citations","pg",7,"character varying",255,NA,NA,NA,NA
+"799","postgresql","bety","public","citations","url",8,"character varying",512,NA,NA,NA,NA
+"800","postgresql","bety","public","citations","pdf",9,"character varying",255,NA,NA,NA,NA
+"801","postgresql","bety","public","citations","doi",12,"character varying",255,NA,NA,NA,NA
+"802","postgresql","bety","public","covariates","statname",8,"text",NA,NA,NA,NA,NA
+"803","postgresql","bety","public","cultivars","notes",5,"text",NA,NA,NA,NA,NA
+"804","postgresql","bety","public","ensembles","notes",2,"text",NA,NA,NA,NA,NA
+"805","postgresql","bety","public","entities","name",3,"character varying",255,NA,NA,NA,NA
+"806","postgresql","bety","public","entities","notes",4,"text",NA,NA,NA,NA,NA
+"807","postgresql","bety","public","formats","notes",4,"text",NA,NA,NA,NA,NA
+"808","postgresql","bety","public","formats","name",7,"character varying",255,NA,NA,NA,NA
+"809","postgresql","bety","public","formats","header",8,"character varying",255,NA,NA,NA,NA
+"810","postgresql","bety","public","formats","skip",9,"character varying",255,NA,NA,NA,NA
+"811","postgresql","bety","public","formats_variables","format_id",2,"bigint",NA,"FOREIGN KEY","public","formats","id"
+"812","postgresql","bety","public","formats_variables","variable_id",3,"bigint",NA,"FOREIGN KEY","public","variables","id"
+"813","postgresql","bety","public","formats_variables","name",4,"character varying",255,NA,NA,NA,NA
+"814","postgresql","bety","public","formats_variables","unit",5,"character varying",255,NA,NA,NA,NA
+"815","postgresql","bety","public","formats_variables","storage_type",6,"character varying",255,NA,NA,NA,NA
+"816","postgresql","bety","public","inputs","name",8,"character varying",255,NA,NA,NA,NA
+"817","postgresql","bety","public","inputs","access_level",11,"integer",NA,NA,NA,NA,NA
+"818","postgresql","bety","public","managements","notes",8,"text",NA,NA,NA,NA,NA
+"819","postgresql","bety","public","methods","description",3,"text",NA,NA,NA,NA,NA
+"820","postgresql","bety","public","models","revision",3,"character varying",255,NA,NA,NA,NA
+"821","postgresql","bety","public","priors","phylogeny",4,"character varying",255,NA,NA,NA,NA
+"822","postgresql","bety","public","priors","distn",5,"character varying",255,NA,NA,NA,NA
+"823","postgresql","bety","public","priors","parama",6,"numeric",NA,NA,NA,NA,NA
+"824","postgresql","bety","public","projects","outdir",3,"character varying",255,NA,NA,NA,NA
+"825","postgresql","bety","public","projects","description",5,"character varying",255,NA,NA,NA,NA
+"826","postgresql","bety","public","sites","city",2,"character varying",255,NA,NA,NA,NA
+"827","postgresql","bety","public","sites","state",3,"character varying",255,NA,NA,NA,NA
+"828","postgresql","bety","public","sites","country",4,"character varying",255,NA,NA,NA,NA
+"829","postgresql","bety","public","sites","soil",7,"character varying",255,NA,NA,NA,NA
+"830","postgresql","bety","public","sites","notes",9,"text",NA,NA,NA,NA,NA
+"831","postgresql","bety","public","sites","soilnotes",10,"text",NA,NA,NA,NA,NA
+"832","postgresql","bety","public","sites","sitename",13,"character varying",255,NA,NA,NA,NA
+"833","postgresql","bety","public","species","genus",3,"character varying",255,NA,NA,NA,NA
+"834","postgresql","bety","public","species","species",4,"character varying",255,NA,NA,NA,NA
+"835","postgresql","bety","public","species","scientificname",5,"character varying",255,NA,NA,NA,NA
+"836","postgresql","bety","public","species","commonname",6,"character varying",255,NA,NA,NA,NA
+"837","postgresql","bety","public","species","notes",7,"character varying",255,NA,NA,NA,NA
+"838","postgresql","bety","public","trait_covariate_associations","required",3,"boolean",NA,NA,NA,NA,NA
+"839","postgresql","bety","public","traits","notes",15,"text",NA,NA,NA,NA,NA
+"840","postgresql","bety","public","treatments","definition",3,"character varying",255,NA,NA,NA,NA
+"841","postgresql","bety","public","users","name",3,"character varying",100,NA,NA,NA,NA
+"842","postgresql","bety","public","users","email",4,"character varying",100,NA,NA,NA,NA
+"843","postgresql","bety","public","users","city",5,"character varying",255,NA,NA,NA,NA
+"844","postgresql","bety","public","users","country",6,"character varying",255,NA,NA,NA,NA
+"845","postgresql","bety","public","users","crypted_password",8,"character varying",40,NA,NA,NA,NA
+"846","postgresql","bety","public","users","access_level",14,"integer",NA,NA,NA,NA,NA
+"847","postgresql","bety","public","users","page_access_level",15,"integer",NA,NA,NA,NA,NA
+"848","postgresql","bety","public","users","state_prov",17,"character varying",255,NA,NA,NA,NA
+"849","postgresql","bety","public","users","postal_code",18,"character varying",255,NA,NA,NA,NA
+"850","postgresql","bety","public","variables","description",2,"character varying",255,NA,NA,NA,NA
+"851","postgresql","bety","public","variables","units",3,"character varying",255,NA,NA,NA,NA
+"852","postgresql","bety","public","variables","notes",4,"text",NA,NA,NA,NA,NA
+"853","postgresql","bety","public","variables","name",7,"character varying",255,NA,NA,NA,NA
+"854","postgresql","bety","public","variables","max",8,"character varying",255,NA,NA,NA,NA
+"855","postgresql","bety","public","variables","min",9,"character varying",255,NA,NA,NA,NA
+"856","postgresql","bety","public","workflows","folder",2,"character varying",255,NA,NA,NA,NA
+"857","postgresql","bety","public","workflows","hostname",9,"character varying",255,NA,NA,NA,NA
+"858","postgresql","bety","public","workflows","params",10,"text",NA,NA,NA,NA,NA
+"859","postgresql","bety","public","workflows","advanced_edit",11,"boolean",NA,NA,NA,NA,NA
+"860","postgresql","bety","public","yields","statname",9,"text",NA,NA,NA,NA,NA
+"861","postgresql","bety","public","yields","notes",13,"text",NA,NA,NA,NA,NA
+"862","postgresql","bety","public","yields","checked",17,"integer",NA,NA,NA,NA,NA
+"863","postgresql","bety","public","yields","access_level",18,"integer",NA,NA,NA,NA,NA
+"864","postgresql","bety","public","machines","sync_host_id",5,"bigint",NA,"UNIQUE",NA,NA,NA
+"865","postgresql","bety","public","machines","sync_url",6,"character varying",255,NA,NA,NA,NA
+"866","postgresql","bety","public","machines","sync_contact",7,"character varying",255,NA,NA,NA,NA
+"867","postgresql","bety","public","machines","sync_start",8,"bigint",NA,NA,NA,NA,NA
+"868","postgresql","bety","public","machines","sync_end",9,"bigint",NA,NA,NA,NA,NA
+"869","postgresql","bety","public","cultivars_pfts","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"870","postgresql","bety","public","machines","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"871","postgresql","bety","public","pfts_species","created_at",3,"timestamp without time zone",NA,NA,NA,NA,NA
+"872","postgresql","bety","public","covariates","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"873","postgresql","bety","public","cultivars_pfts","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"874","postgresql","bety","public","current_posteriors","updated_at",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"875","postgresql","bety","public","likelihoods","updated_at",10,"timestamp without time zone",NA,NA,NA,NA,NA
+"876","postgresql","bety","public","machines","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"877","postgresql","bety","public","managements_treatments","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"878","postgresql","bety","public","models","updated_at",6,"timestamp without time zone",NA,NA,NA,NA,NA
+"879","postgresql","bety","public","modeltypes","updated_at",5,"timestamp without time zone",NA,NA,NA,NA,NA
+"880","postgresql","bety","public","pfts","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"881","postgresql","bety","public","pfts_priors","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"882","postgresql","bety","public","pfts_species","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"883","postgresql","bety","public","posterior_samples","updated_at",7,"timestamp without time zone",NA,NA,NA,NA,NA
+"884","postgresql","bety","public","posteriors","updated_at",4,"timestamp without time zone",NA,NA,NA,NA,NA
+"885","postgresql","bety","public","formats","mimetype_id",10,"bigint",NA,NA,NA,NA,NA
+"886","postgresql","bety","public","yields","entity_id",20,"bigint",NA,NA,NA,NA,NA
+"887","postgresql","bety","public","yields","date_year",21,"integer",NA,NA,NA,NA,NA
+"888","postgresql","bety","public","yields","date_month",22,"integer",NA,NA,NA,NA,NA
+"889","postgresql","bety","public","yields","date_day",23,"integer",NA,NA,NA,NA,NA
+"890","postgresql","bety","public","workflows","notes",14,"text",NA,NA,NA,NA,NA
+"891","postgresql","bety","public","workflows","user_id",15,"bigint",NA,"FOREIGN KEY","public","users","id"
