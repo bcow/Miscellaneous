@@ -7,147 +7,111 @@ startdate <- start_date
 enddate <- end_date
 parent <- ""
 
-n <- 8
 
-<<<<<<< HEAD
+####################################
+## Insert inputs
 
+n_ornl <- 5
+n_duke <- 8
 
-
-formatid <- 10 
-#name <- paste0("duke",n,".lat35.5lon-79.5.site")
-name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.site"
-
-=======
-formatid <- 10 
-name <- paste0("duke",n,".lat35.5lon-79.5.site")
->>>>>>> 63bdf98089f2ae522fbd256af8369d8614ae1ec1
-cmd10 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
-                siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
-
-formatid <- 11
-<<<<<<< HEAD
-#name <- paste0("duke",n,".lat35.5lon-79.5.css")
-name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.css"
-
-
-=======
-name <- paste0("duke",n,".lat35.5lon-79.5.css")
->>>>>>> 63bdf98089f2ae522fbd256af8369d8614ae1ec1
-cmd11 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
-                siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
-
-formatid <- 15
-<<<<<<< HEAD
-#name <- paste0("duke",n,".lat35.5lon-79.5.pss")
-name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.pss"
-
-=======
-name <- paste0("duke",n,".lat35.5lon-79.5.pss")
->>>>>>> 63bdf98089f2ae522fbd256af8369d8614ae1ec1
-cmd15 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
-                siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
-
-
-db.query(cmd10, con)
-db.query(cmd11, con)
-db.query(cmd15, con)
-
-
-
-inp <- db.query(paste0("SELECT * FROM inputs WHERE site_id=", siteid, " AND format_id=", formatid, " AND start_date='", startdate, "' AND end_date='", enddate, "'" , parent, ";"), con)
-
-
-# return input id
-
-
-
-
-# find appropriate dbfile, if not in database, insert new dbfile
-hostname <- "pecan2.bu.edu"
-
-for(n in 1:8){
+for(n in 1:n_ornl){
+  # ---- SITE ---- #
+  formatid <- 10 
   
-  ##################
-  #site
-<<<<<<< HEAD
-  name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.site"
-  input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.site")
+  #name <- paste0("duke",n,".lat35.5lon-79.5.site")
+  #name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.site"
   
-  hostname <- "geo.bu.edu"
+  cmd10 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
+                  siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
   
-  dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
-  if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
-  }
-  remove(name,input,dbfileid)
   
-  ##################
-  #pss
-  name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.pss"
-  input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
+  # ---- CSS ---- #
+  formatid <- 11
   
-  dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
-  if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
-  }
-  remove(name,input,dbfileid)
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.css")
+  #name <- paste0("duke",n,".lat35.5lon-79.5.css")
+  #name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.css"
   
-  ##################
-  #css
-  name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.css"
+  cmd11 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
+                  siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
   
-  input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
+  # ---- PSS ---- #
+  formatid <- 15
   
-  dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
-  if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
-  }
-  remove(name,input,dbfileid)
-
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.pss")
+  #name <- paste0("duke",n,".lat35.5lon-79.5.pss")
+  #name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.pss"
+  
+  cmd15 <- paste0("INSERT INTO inputs (site_id, format_id, created_at, updated_at, start_date, end_date, name) VALUES (",
+                  siteid, ", ", formatid, ", NOW(), NOW(), '", startdate, "', '", enddate,"','", name, "')")
+  
+  db.query(cmd10, con)
+  db.query(cmd11, con)
+  db.query(cmd15, con)
+  
 }
 
+.lat35.5lon-84.5.site
 
-# FOR RHIN
+oops <- "DELETE FROM inputs WHERE name = 'ORNL8.lat35.5lon-84.5.pss'"
+
+oops <- "DELETE FROM dbfiles WHERE file_name = 'ORNL1.lat35.5lon-84.5'"
+db.query(oops, con)
+
+####################################
+## find appropriate dbfile, if not in database, insert new dbfile
+
+hostname <- "pecan2.bu.edu"
+
+hostname <- "geo.bu.edu"
+
+for(n in 1:5){
   
   ##################
   #site
-=======
->>>>>>> 63bdf98089f2ae522fbd256af8369d8614ae1ec1
-  name <- paste0("duke",n,".lat35.5lon-79.5.site")
+
+  # name <- paste0("duke",n,".lat35.5lon-79.5.site")
+  # name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.site"
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.site")
+
   input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
   
   dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
   if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
+    dbfileid <- dbfile.insert("/home/ecowdery/FACE/ORNL", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
   }
   remove(name,input,dbfileid)
   
   ##################
   #pss
-  name <- paste0("duke",n,".lat35.5lon-79.5.pss")
+  
+  # name <- paste0("duke",n,".lat35.5lon-79.5.pss")
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.pss")
+
   input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
   
   dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
   if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
+    dbfileid <- dbfile.insert("/home/ecowdery/FACE/ORNL", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
   }
   remove(name,input,dbfileid)
   
   ##################
   #css
-  name <- paste0("duke",n,".lat35.5lon-79.5.css")
+
+  # name <- "/usr2/collab/ecowdery/FACE/RHIN/Rhin.lat45.6lon-89.5.css"
+  # name <- paste0("duke",n,".lat35.5lon-79.5.css")
+  name <- paste0("ORNL",n,".lat35.5lon-84.5.css")
+  
   input <- db.query(paste0("SELECT * FROM inputs WHERE name = '", name,"'"), con)
   
   dbfileid <- dbfile.check('Input', input$id, con, hostname)[['id']]
   if(is.null(dbfileid)){
-    dbfileid <- dbfile.insert("/home/ecowdery/FACE/DUKE", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
+    dbfileid <- dbfile.insert("/home/ecowdery/FACE/ORNL", input$name, 'Input', input$id, con, reuse=TRUE, hostname)
   }
   remove(name,input,dbfileid)
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 63bdf98089f2ae522fbd256af8369d8614ae1ec1
 }
 
 
