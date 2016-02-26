@@ -41,7 +41,7 @@ par(mfrow=c(1,3))
 year <- year_96_07
 length(year)
 
-WFID <- 1000000951 #AMBIENT
+WFID <- 1000001058 #AMBIENT
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))
@@ -82,7 +82,7 @@ DUKE_a_NPP_Y_lw <- lw_NPP_Y
 
 #-----------------------------------#
 
-WFID <- 1000000952 #ELEVATED
+WFID <- 1000000959 #ELEVATED
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))
@@ -140,7 +140,7 @@ title("DUKE")
 year <- year_98_08
 length(year)
 
-WFID <- 1000000945 #AMBIENT
+WFID <- 1000000956 #AMBIENT
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))
@@ -180,7 +180,7 @@ ORNL_a_NPP_Y_lw <- lw_NPP_Y
 
 #-----------------------------------#
 
-WFID <- 1000000954 #ELEVATED
+WFID <- 1000000957 #ELEVATED
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))
@@ -237,7 +237,7 @@ title("ORNL")
 year <- year_98_08
 length(year)
 
-WFID <- 1000000955 #AMBIENT
+WFID <- 1000000960 #AMBIENT
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))
@@ -277,7 +277,7 @@ RHIN_a_NPP_Y_lw <- lw_NPP_Y
 
 #-----------------------------------#
 
-WFID <- 1000000956 #ELEVATED
+WFID <- 1000000961 #ELEVATED
 
 runs <- dir(paste0("/fs/data2/output/PEcAn_",WFID,"/out/"), full.names=TRUE)
 nc <- nc_open(file.path(runs[1],"2004.nc"))

@@ -60,7 +60,7 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
     assign(stage$id.name,list(
       inputid = input_met$id,
       dbfileid = db.query(paste0("SELECT id from dbfiles where container_id = ", input_met$id, 
-                                 "AND machine_id = ", machine$id ),con)[[1]]
+                                 " AND machine_id = ", machine$id ),con)[[1]]
     ))
   }
 
@@ -114,7 +114,7 @@ PalEON.met.process <- function(site, input_met, start_date, end_date, model, hos
     }
     
   }
-  
+    
   #--------------------------------------------------------------------------------------------------#
   # Change to  CF Standards
   
