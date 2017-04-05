@@ -11,8 +11,6 @@ plot(DUKE_obvs$YEAR[a], DUKE_obvs$NPP[a], col="blue", xlim = c(1996,2007), ylim 
 lines(unique(DUKE_obvs$YEAR[a]),tapply(DUKE_obvs$NPP[a], mean, INDEX = DUKE_obvs$YEAR[a]), col="blue")
 points(DUKE_obvs$YEAR[e], DUKE_obvs$NPP[e], col="red")
 lines(unique(DUKE_obvs$YEAR[e]),tapply(DUKE_obvs$NPP[e], mean, INDEX = DUKE_obvs$YEAR[e]), col="red")
-
-
 title("DUKE")
 
 a <- which(ORNL_obvs$CO2 == "amb")
@@ -21,7 +19,6 @@ plot(ORNL_obvs$YEAR[a], ORNL_obvs$NPP[a], col="blue", xlim = c(1998,2008), ylim 
 lines(unique(ORNL_obvs$YEAR[a]),tapply(ORNL_obvs$NPP[a], mean, INDEX = ORNL_obvs$YEAR[a]), col="blue")
 points(ORNL_obvs$YEAR[e], ORNL_obvs$NPP[e], col="red")
 lines(unique(ORNL_obvs$YEAR[e]),tapply(ORNL_obvs$NPP[e], mean, INDEX = ORNL_obvs$YEAR[e]), col="red")
-
 title("ORNL")
 
 

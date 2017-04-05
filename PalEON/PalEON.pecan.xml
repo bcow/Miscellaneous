@@ -34,22 +34,20 @@
  </model>
  <run>
   <site>
-   <id>1000000673</id>
+   <id>759</id>
    <met.start>0850-01-01 00:00:00</met.start>
    <met.end>2010-12-31 23:59:00</met.end>
-   <name>Deming Lake (PalEON PDL)</name>
-   <lat>47.17</lat>
-   <lon>-95.17</lon>
+   <name>Howland Forest- main tower (US-Ho1) (PalEON PHO)</name>
+   <lat>45.2041</lat>
+   <lon>-68.7403</lon>
   </site>
   <inputs>
    <met>
     <source>PalEON</source>
-    <path>/fs/data1/pecan.data/input//PalEON_site_1-673</path>
-    <id>1000000533</id>
    </met>
   </inputs>
   <start.date>0850/01/01</start.date>
-  <end.date>2009/12/31</end.date>
+  <end.date>2010/12/31</end.date>
   <dbfiles>/fs/data1/pecan.data/input/</dbfiles>
   <host>
    <name>localhost</name>
@@ -89,6 +87,7 @@
    <lon>-95.17</lon>
   </site>
   <inputs>
+  
    <met>
     <source>PalEON</source>
     <path>/fs/data1/pecan.data/input//PalEON_site_1-673</path>

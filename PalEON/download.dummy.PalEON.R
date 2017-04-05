@@ -10,12 +10,12 @@
 ##' @author Betsy Cowdery
 download.dummy.PalEON <- function(sitename, outfolder, start_date, end_date, overwrite=FALSE){
   
-  if(sitename == "Harvard Forest - Lyford Plots (PalEON PHA)"){site <- "PHA"}      # 1-650 done
-  else if(sitename == "Howland Forest- main tower (US-Ho1) (PalEON PHO)"){site <- "PHO"} # 0-759
-  else if(sitename == "Billy’s Lake (PalEON PBL)"){site <- "PBL"}   # 1-672 done
-  else if(sitename == "Deming Lake (PalEON PDL)"){site <- "PDL"}    # 1-673 done
-  else if(sitename == "Minden Bog (PalEON PMB)"){site <- "PMB"}     # 1-674 done
-  else if(sitename == "University of Notre Dame Environmental Research Center (PalEON UNDERC)"){site <- "PUN"}         # 1-675 done
+  if(sitename == "Harvard Forest - Lyford Plots (PalEON PHA)"){site <- "PHA"   # 1-650 done
+  }else if(sitename == "Howland Forest- main tower (US-Ho1) (PalEON PHO)"){site <- "PHO" # 0-759
+  }else if(sitename == "Billy’s Lake (PalEON PBL)"){site <- "PBL"   # 1-672 done
+  }else if(sitename == "Deming Lake (PalEON PDL)"){site <- "PDL"    # 1-673 done
+  }else if(sitename == "Minden Bog (PalEON PMB)"){site <- "PMB"    # 1-674 done
+  }else if(sitename == "University of Notre Dame Environmental Research Center (PalEON UNDERC)"){site <- "PUN"}         # 1-675 done
   
   require(PEcAn.utils)
   require(lubridate)

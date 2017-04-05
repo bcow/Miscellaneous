@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+ <run>
+  <site>
+   <id>758</id>
+   <name>Harvard Forest EMS Tower/HFR1 (US-Ha1)</name>
+   <lat>42.5378</lat>
+   <lon>-72.1715</lon>
+  </site>
+  <start.date>2013-01-01 00:00:00</start.date>
+  <end.date>2013-12-31 00:00:00</end.date>
+  <host>
+   <name>geo.bu.edu</name>
+   <rundir>/home/ecowdery/met_process_tests/dalec//run</rundir>
+   <outdir>/home/ecowdery/met_process_tests/dalec//out</outdir>
+  </host>
+  <dbfiles>/projectnb/dietzelab/pecan.data/input/</dbfiles>
+  <inputs>
+    <met>
+      <source>Ameriflux</source>
+    </met>
+  </inputs>
+ </run>
