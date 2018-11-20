@@ -2,7 +2,7 @@
 
 All runs started with `qsub ~/ED_Tropics/runs/qsub_BCI_pecan.sh`
 
-## BCI.o9650689
+## 9650689 (2003 - 2016) BREAKS
 
 ### `~/ED_Tropics/inputs/BCI/ED2IN_pecan`
 
@@ -74,6 +74,8 @@ Backtrace for this error:
 ### Notes
 
 It has been suggested to me that this could be a met problem. I think I'll try running starting with 2004, see if that works and also plot the met for 2003 (starting probably with radiation.)
+
+## 9657198 (2004-2016)
 
 ### `~/ED_Tropics/inputs/BCI/ED2IN_pecan`
 
