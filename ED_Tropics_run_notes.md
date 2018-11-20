@@ -75,4 +75,25 @@ Backtrace for this error:
 
 It has been suggested to me that this could be a met problem. I think I'll try running starting with 2004, see if that works and also plot the met for 2003 (starting probably with radiation.)
 
-## 
+### `~/ED_Tropics/inputs/BCI/ED2IN_pecan`
+
+Only thing I changed was the start date to 2004.
+
+```
+   !---------------------------------------------------------------------------------------!
+   !     Start of simulation. Information must be given in UTC time.                       !
+   !---------------------------------------------------------------------------------------!
+   NL%IMONTHA = 1
+   NL%IDATEA = 1
+   NL%IYEARA = 2004
+   NL%ITIMEA = 0
+   !---------------------------------------------------------------------------------------!
+
+   !---------------------------------------------------------------------------------------!
+   !     End of simulation. Information must be given in UTC time.                         !
+   !---------------------------------------------------------------------------------------!
+   NL%IMONTHZ = 12
+   NL%IDATEZ = 31
+   NL%IYEARZ = 2016
+   NL%ITIMEZ = 0
+   !---------------------------------------------------------------------------------------!
